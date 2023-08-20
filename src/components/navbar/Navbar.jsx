@@ -1,7 +1,9 @@
 import React from 'react'
 import "./navbar.scss"
+
 const Navbar = () => {
   return (
+<div>
     <header className="heading d-flex align-center">
     <h1 className="heading-1">
         Nomad_nest
@@ -17,7 +19,10 @@ const Navbar = () => {
         </span>
       </div>
     </nav>
+
   </header>
+
+  </div>
   )
 }
 
