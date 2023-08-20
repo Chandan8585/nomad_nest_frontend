@@ -5,6 +5,7 @@ import "./home.scss"
 import HotelCard from '../../components/hotel/HotelCard';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Category from '../../components/category/Category';
+import { useCategory } from '../../context/category-context';
 const Home = () => {
     const [hotelData , setHotelData] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(16);
@@ -12,17 +13,24 @@ const Home = () => {
     const [hasMore, setHasMore] = useState(true);
 
 
+const {hotelCategory} = useCategory();
+console.log(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`)
+console.log(hotelCategory);
     useEffect(()=> {
    (async()=> {
  try {
-    const {data} = await axios.get("https://nomad-nest-backend.onrender.com/api/hotels");
+    const {data} = await axios.get(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`);
     setTestData(data);
     setHotelData(data ? data.slice(0,16) : []);
  } catch (error) {
     console.log(error);
  }
      })();
-    },[])
+    },[hotelCategory])
+
+    // useEffect(()=>{
+
+    // })
 
    const fetchMoreData = ()=> {
     if(hotelData.length >= testData.length){
