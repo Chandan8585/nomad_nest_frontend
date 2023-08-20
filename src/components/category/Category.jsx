@@ -29,6 +29,7 @@ const Category = () => {
         setNumberOfCategoryToShow(prev => prev - 10);
     }
    const handleCategoryClick = (category)=> {
+         console.log("clicked");
            categoryDispatch({
             type: "HOTEL_CATEGORY",
             payload: category
