@@ -1,0 +1,48 @@
+.categories {
+  padding: 6rem 3rem 1rem 5rem;
+  color: var(--text-color-primary);
+  background-color: var(--background-color);
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+}
+
+.gap-large {
+  gap: 2rem;
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--text-color-primary);
+}
+
+.button.btn-category {
+  padding: 0;
+  top: 6rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+  color: var(--text-color-primary);
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.btn-left {
+  left: 2rem;
+}
+
+.btn-right {
+  right: 10rem;
+  
+}
+
+.button.btn-filter {
+  top: 5.5rem;
+  right: 2rem;
+  padding: 8px 1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--accent-color);
+}
+
+.btn-filter:hover,
+.btn-category:hover {
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+}
