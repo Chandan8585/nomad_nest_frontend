@@ -1,9 +1,16 @@
 import React from 'react'
 import "./hotelcard.scss"
+import { useNavigate } from 'react-router-dom';
 const HotelCard = ({hotel}) => {
     const {_id, image, name, address, state, rating, price} = hotel;
+           const navigate = useNavigate();
+           console.log("hotelCard",_id);
+    const handleHotelCardClick = ()=> {
+        console.log("clicked");
+        navigate(`/hotels/${name}/${address}-${state}/${_id}/reserve`);
+    }
   return (
-    <div className="relative hotelcard-container shadow cursor-pointer" key={_id}>
+    <div className="relative hotelcard-container shadow cursor-pointer" key={_id} onClick={handleHotelCardClick}>
     <div 
     // onClick={handleHotelCardClick}
     >
