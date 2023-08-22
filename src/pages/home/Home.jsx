@@ -14,12 +14,13 @@ const Home = () => {
 
 
 const {hotelCategory} = useCategory();
-console.log(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`)
+// console.log(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`)
 console.log(hotelCategory);
     useEffect(()=> {
    (async()=> {
  try {
     const {data} = await axios.get(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`);
+    console.log(data);
     setTestData(data);
     setHotelData(data ? data.slice(0,16) : []);
  } catch (error) {

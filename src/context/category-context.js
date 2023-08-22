@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import { categoryReducer } from "../reducers/categoryReducers";
 const initialState = {
-    hotelCategory: "National Park"
+    hotelCategory: "National Parks"
 }
 const CategoryContext = createContext();
 
