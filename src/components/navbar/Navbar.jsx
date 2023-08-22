@@ -1,13 +1,18 @@
 import React from 'react'
 import "./navbar.scss"
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+
   return (
 <div>
     <header className="heading d-flex align-center">
-    <h1 className="heading-1">
+      <Link to="/">
+      <h1 className="heading-1">
         Nomad_nest
     </h1>
+      </Link>
+ 
     
     <nav className="d-flex align-center gap-large" >
       <div className="nav d-flex align-center cursor-pointer">

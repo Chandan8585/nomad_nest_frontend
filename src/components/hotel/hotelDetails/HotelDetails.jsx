@@ -1,9 +1,11 @@
-import React from 'react'
+
 import "./HotelDetails.scss"
 const HotelDetails = ({singleHotel}) => {
     console.log("single hotel",singleHotel);
-   const {id, hostName ,hostJoinedOn,numberOfBathrooms,numberOfBeds,numberOfguest,numberOfBedrooms,numberOfStudies,ameneties,healthAndSafety, houseRules,propertyType, isCancelable, rating} = singleHotel
-   console.log("Amenities:", ameneties , id);
+   const { hostName ,hostJoinedOn,numberOfBathrooms,numberOfBeds,numberOfguest,numberOfBedrooms,numberOfStudies, ameneties, healthAndSafety, houseRules,rating} = singleHotel
+   console.log("healthandSafety", healthAndSafety);
+   console.log("houseRules", houseRules);
+   console.log("Amenities", ameneties);
    return (
     <div className="hotel-details-container">
     <div className="host-details">
@@ -11,7 +13,7 @@ const HotelDetails = ({singleHotel}) => {
         Hosted by {hostName}, Joined on {hostJoinedOn}
       </p>
       <div className="span hotel-room-details">
-        {numberOfguest} guests. {numberOfBeds}bedrooms. 
+        {numberOfguest} guests. {numberOfBeds} bedrooms. 
        {numberOfBedrooms} beds. {numberOfBathrooms} bathrooms. {numberOfStudies} studyrooms
       </div>
     </div>
@@ -43,7 +45,7 @@ const HotelDetails = ({singleHotel}) => {
       <div className="d-flex gap-xxl">
         <div className="d-flex direction-column">
             {
-                ameneties.map((amenity,index)=>(
+                ameneties && ameneties.map((amenity,index)=>(
                     <span className="span d-flex align-center gap" key={index}>
                     <span class="apps material-icons-outlined">apps</span>{amenity}
                   </span>
@@ -52,9 +54,9 @@ const HotelDetails = ({singleHotel}) => {
         </div>
         <div className="d-flex direction-column">
             {
-                healthAndSafety.map((feature)=>(
-                    <span className="span d-flex align-center gap">
-                    <span class="apps material-icons-outlined">apps</span>{feature}
+               healthAndSafety && healthAndSafety.map((item,index)=>(
+                    <span className="span d-flex align-center gap" key={index}>
+                    <span class="apps material-icons-outlined">apps</span>{item}
                   </span>
                 ))
             }
@@ -66,7 +68,7 @@ const HotelDetails = ({singleHotel}) => {
       <div className="d-flex gap-xxl">
         <div className="d-flex direction-column">
             {
-                houseRules.map((rule,index)=>(
+               houseRules && houseRules.map((rule,index)=>(
                     <span className="span d-flex align-center gap" key={index}>
                     <span class="apps material-icons-outlined">apps</span>{rule}
                   </span>
