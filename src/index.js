@@ -4,15 +4,18 @@ import {BrowserRouter} from 'react-router-dom'
 import './index.css';
 import App from './App';
 import { CategoryProvider } from './context/category-context';
+import { DateProvider } from './context/date-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <React.StrictMode>
     <BrowserRouter>
+    <DateProvider>
     <CategoryProvider>
   <App />
   </CategoryProvider>
+    </DateProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

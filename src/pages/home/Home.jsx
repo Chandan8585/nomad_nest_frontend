@@ -11,7 +11,7 @@ const Home = () => {
     const [currentIndex, setCurrentIndex] = useState(16);
     const [testData , setTestData] = useState([]);
     const [hasMore, setHasMore] = useState(true);
-
+    const [loading, setLoading] = useState(false);
 
 const {hotelCategory} = useCategory();
 // console.log(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`)
@@ -21,10 +21,12 @@ console.log(hotelCategory);
  try {
     const {data} = await axios.get(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`);
     console.log(data);
+    setLoading(true);
     setTestData(data);
     setHotelData(data ? data.slice(0,16) : []);
  } catch (error) {
     console.log(error);
+    setLoading(true);
  }
      })();
     },[hotelCategory])
@@ -52,6 +54,8 @@ console.log(hotelCategory);
      
   return (
     <Fragment>
+      { loading ? (
+        <>  
         <Navbar/>
         <Category/>
         <main>
@@ -71,7 +75,12 @@ console.log(hotelCategory);
 </InfiniteScroll>
             ) : (<></>)
 }
-        </main>
+        </main> 
+        </>
+        ) : (
+        <h1>Loading...</h1>
+      ) 
+}
     </Fragment>
   )
 }

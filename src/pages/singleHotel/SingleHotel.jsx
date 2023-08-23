@@ -7,16 +7,16 @@ import "./singleHotel.scss"
 import HotelDetails from '../../components/hotel/hotelDetails/HotelDetails';
 import FinalPrice from '../../components/hotel/finalPrice/FinalPrice';
 const SingleHotel = () => {
-    const {_id} = useParams();
+    const {id} = useParams();
     
     const [singleHotel, setSingleHotel] = useState({});
-    console.log("check",{_id});
+    console.log("check",{id});
     
 
     useEffect(()=> {
          (async()=> {
             try {
-            const {data} =await axios.get(`https://nomad-nest-backend.onrender.com/api/hotels/:${_id}`);
+            const {data} =await axios.get(`https://nomad-nest-backend.onrender.com/api/hotels/${id}`);
             
             setSingleHotel(data);
            
@@ -24,7 +24,7 @@ const SingleHotel = () => {
                 console.log(error)
             }
          } )()
-    }, []);
+    }, [id]);
      const {name, state} = singleHotel
      console.log(singleHotel);
   return (
