@@ -63,6 +63,7 @@ const HotelDetails = ({singleHotel}) => {
         </div>
       </div>
       </div>
+      <hr />
       <div className="amenities-container">
       <p className="p amenities">Rules and Regulations</p>
       <div className="d-flex gap-xxl">
