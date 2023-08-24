@@ -5,14 +5,19 @@ const initialState = {
    checkInDate : null,
    checkOutDate : null,
    isSearchModalOpen : false,
-   isSearchResultOpen : true
+   destination:"",
+   guest:"",
 }
 const DateContext = createContext(initialState);
 const DateProvider = ({children})=> {
-    const [{checkInDate, checkOutDate}, dateDispatch] = useReducer(dateReducer, initialState); 
-      <DateContext.Provider value={{checkInDate, checkOutDate, dateDispatch}}>
+    const [{checkInDate, checkOutDate, isSearchModalOpen,guest, destination}, dateDispatch] = useReducer(dateReducer, initialState); 
+    console.log("dateprovider" , isSearchModalOpen);
+
+    return (
+      <DateContext.Provider value={{checkInDate, checkOutDate, isSearchModalOpen, destination,guest, dateDispatch}}>
         {children}
       </DateContext.Provider>
+    )
 }
 
 const useDate = () => useContext(DateContext);

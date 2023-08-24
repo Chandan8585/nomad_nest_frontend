@@ -6,21 +6,22 @@ import HotelCard from '../../components/hotel/HotelCard';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Category from '../../components/category/Category';
 import { useCategory } from '../../context/category-context';
+import { useDate } from '../../context/date-context';
+import SearchStayWithDate from '../../components/searchStayWithDate/SearchStayWithDate';
 const Home = () => {
     const [hotelData , setHotelData] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(16);
     const [testData , setTestData] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [loading, setLoading] = useState(false);
-
+   const {isSearchModalOpen} = useDate();
+   
 const {hotelCategory} = useCategory();
-// console.log(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`)
-console.log(hotelCategory);
     useEffect(()=> {
    (async()=> {
  try {
     const {data} = await axios.get(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`);
-    console.log(data);
+    
     setLoading(true);
     setTestData(data);
     setHotelData(data ? data.slice(0,16) : []);
@@ -31,9 +32,7 @@ console.log(hotelCategory);
      })();
     },[hotelCategory])
 
-    // useEffect(()=>{
 
-    // })
 
    const fetchMoreData = ()=> {
     if(hotelData.length >= testData.length){
@@ -54,6 +53,7 @@ console.log(hotelCategory);
      
   return (
     <Fragment>
+      <main> 
       { loading ? (
         <>  
         <Navbar/>
@@ -80,6 +80,10 @@ console.log(hotelCategory);
         ) : (
         <h1>Loading...</h1>
       ) 
+} 
+</main>
+{
+  isSearchModalOpen && <SearchStayWithDate/>
 }
     </Fragment>
   )
