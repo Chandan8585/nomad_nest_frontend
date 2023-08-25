@@ -6,9 +6,7 @@ import { useCategory } from '../../context/category-context';
 const Category = () => {
     const [categories, setCategories] = useState([]);
     const [numberOfCategoryToShow, setNumberOfCategoryToShow] = useState(0);
-
    const {categoryDispatch, hotelCategory} = useCategory();
-//    const {hotelCategory, setHotelCategory} = useCategory();
 
     useEffect(() => {
         (async () => {

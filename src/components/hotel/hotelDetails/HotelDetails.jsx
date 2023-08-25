@@ -1,11 +1,9 @@
 
 import "./HotelDetails.scss"
 const HotelDetails = ({singleHotel}) => {
-    console.log("single hotel",singleHotel);
+    
    const { hostName ,hostJoinedOn,numberOfBathrooms,numberOfBeds,numberOfguest,numberOfBedrooms,numberOfStudies, ameneties, healthAndSafety, houseRules,rating} = singleHotel
-   console.log("healthandSafety", healthAndSafety);
-   console.log("houseRules", houseRules);
-   console.log("Amenities", ameneties);
+  
    return (
     <div className="hotel-details-container">
     <div className="host-details">
@@ -20,7 +18,7 @@ const HotelDetails = ({singleHotel}) => {
     <div className="key-features host-details">
       <div className="gutter-bottom-small">
         <p className="p d-flex align-center gap">
-          <span class="apps material-icons-outlined">apps</span>Dedicated
+          <span className="apps material-icons-outlined">apps</span>Dedicated
           Workspace
         </p>
         <span className="span">
@@ -29,14 +27,14 @@ const HotelDetails = ({singleHotel}) => {
       </div>
       <div className="gutter-bottom-small">
         <p className="p d-flex align-center gap">
-          <span class="apps material-icons-outlined">apps</span>Great Location
+          <span className="apps material-icons-outlined">apps</span>Great Location
         </p>
         <span className="span">
           80% of recent guests gave the location a {rating}-star rating
         </span>
       </div>
       <p className="p d-flex align-center gap">
-        <span class="apps material-icons-outlined">apps</span>Free
+        <span className="apps material-icons-outlined">apps</span>Free
         cancellation before 7 days of booking
       </p>
     </div>
@@ -47,7 +45,7 @@ const HotelDetails = ({singleHotel}) => {
             {
                 ameneties && ameneties.map((amenity,index)=>(
                     <span className="span d-flex align-center gap" key={index}>
-                    <span class="apps material-icons-outlined">apps</span>{amenity}
+                    <span className="apps material-icons-outlined">apps</span>{amenity}
                   </span>
                 ))
             }
@@ -56,7 +54,7 @@ const HotelDetails = ({singleHotel}) => {
             {
                healthAndSafety && healthAndSafety.map((item,index)=>(
                     <span className="span d-flex align-center gap" key={index}>
-                    <span class="apps material-icons-outlined">apps</span>{item}
+                    <span className="apps material-icons-outlined">apps</span>{item}
                   </span>
                 ))
             }
@@ -71,7 +69,7 @@ const HotelDetails = ({singleHotel}) => {
             {
                houseRules && houseRules.map((rule,index)=>(
                     <span className="span d-flex align-center gap" key={index}>
-                    <span class="apps material-icons-outlined">apps</span>{rule}
+                    <span className="apps material-icons-outlined">apps</span>{rule}
                   </span>
                 ))
             }
