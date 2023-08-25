@@ -1,11 +1,16 @@
 import React from 'react'
 import "./navbar.scss"
 import { Link } from 'react-router-dom'
+import { useDate } from '../../context/date-context'
 
 const Navbar = () => {
-  const handleDateClick = ()=> {
-    
-  }
+  const {dateDispatch,destination, checkInDate, checkOutDate, guest} = useDate();
+  const handleSearchClick = ()=> {
+
+     dateDispatch({
+      type: "SEARCH_MODAL_OPEN",
+     })
+     }
   return (
 <div>
     <header className="heading d-flex align-center">
@@ -16,13 +21,18 @@ const Navbar = () => {
       </Link>
 
       <div
-        className="form-container d-flex align-center cursor-pointer shadow">
-        <span className="form-option"> Any Where</span>
+        className="form-container d-flex align-center cursor-pointer shadow" onClick={handleSearchClick}>
+        <span className="form-option"> { destination ||"Any Where"}</span>
         <span className="border-right-1px"></span>
-        <span className="form-option" onClick={handleDateClick}>Any Week</span>
+        <span className="form-option" > {checkInDate && checkOutDate
+              ? `${checkInDate.toLocaleDateString('en-US', {
+                  day: 'numeric',
+                  month: 'short',
+                })} - ${checkOutDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}`
+              : 'ANY WEEK'}</span>
         <span className="border-right-1px"></span>
-        <span className="form-option">Add Guests</span>
-        <span class="search material-icons-outlined">search</span>
+        <span className="form-option">{`${guest} Guests` || "Add Guests"}</span>
+        <span className="search material-icons-outlined">search</span>
       </div>
 
     <nav className="d-flex align-center gap-large" >
