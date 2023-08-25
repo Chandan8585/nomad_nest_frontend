@@ -36,3 +36,4 @@ const DateSelector = ({ placeholder, checkInType }) => {
 };
 
 export default DateSelector;
+
