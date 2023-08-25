@@ -10,7 +10,7 @@ const SingleHotel = () => {
     const {id} = useParams();
     
     const [singleHotel, setSingleHotel] = useState({});
-    console.log("check",{id});
+    
     
 
     useEffect(()=> {
@@ -26,7 +26,7 @@ const SingleHotel = () => {
          } )()
     }, [id]);
      const {name, state} = singleHotel
-     console.log(singleHotel);
+     
   return (
     <Fragment>
         <Navbar/>
