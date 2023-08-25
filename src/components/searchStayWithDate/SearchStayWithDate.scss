@@ -49,15 +49,17 @@
     background-color: var(--background-color);
     color: var(--text-color-primary);
     width: 400px;
-    min-height: max-content;
+    // min-height: max-content;
+    max-height: 50vh;
     overflow-y: auto;
     margin-top: 2.875rem;
     border-radius: 4px;
     margin-left: 26.5rem;
   }
   
-  .p {
+  .p{
     padding: 8px;
     color: var(--text-color-primary);
+
     opacity: .7;
   }

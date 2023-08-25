@@ -1,7 +1,17 @@
 import React from 'react'
 import "./FinalPrice.scss"
+import { useDate } from '../../../context/date-context'
+import DateSelector from '../../dateSelector/DateSelector'
 const FinalPrice = ({singleHotel}) => {
  const {price, rating} = singleHotel
+ const {dateDispatch, guest} = useDate();
+ 
+ const handleGuestChange = (event)=> {
+       dateDispatch({
+        type: "ADD_GUEST",
+        payload: event.target.value
+       })
+ }
   return (
     <div className="price-details-container d-flex direction-column gap shadow">
     <div className="price-rating d-flex align-center justify-space-between">
@@ -17,24 +27,21 @@ const FinalPrice = ({singleHotel}) => {
       <div className="grid-container-two-col selected-dates">
         <div className="checkin loc-container">
           <label className="label">Check in</label>
-          
+          <DateSelector checkInType="in"/>
         </div>
         <div className="checkin loc-container">
           <label className="label">Check Out</label>
-        
+          <DateSelector checkInType="out"/>
         </div>
       </div>
       <div className="guests gutter-sm">
         <p>GUESTS</p>
-        
+        <p>{guest <= 0 ? (<input placeholder='Add Guests' type='number' value={guest} onChange={(event)=> handleGuestChange(event)} />):(<input value={guest} />)}</p>
       </div>
     </div>
     <div>
       <button
-        className="button btn-reserve btn-primary cursor"
-        
-
-      >
+        className="button btn-reserve btn-primary cursor">
         Reserve
       </button>
     </div>
