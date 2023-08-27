@@ -3,6 +3,8 @@ import PriceRange from './priceRange/PriceRange'
 import "./filter.scss"
 import RoomsAndBeds from './roomsAndBeds/RoomsAndBeds'
 import PropertyType from './propertyType/PropertyType'
+import Rating from './rating/Rating'
+import FreeCancel from './freeCancel/FreeCancel'
 const Filter = () => {
   return (
     <div className='filter-modal'>
@@ -18,6 +20,12 @@ const Filter = () => {
             <PriceRange/>
             <RoomsAndBeds/>
             <PropertyType/>
+            <Rating/>
+            <FreeCancel/>
+            <div className="d-flex align-center justify-space-between">
+              <button className="button cursor btn-link-primary">Clear ALL</button>
+              <button className="button cursor btn-primary btn-apply">Apply </button>
+            </div>
         </div>
     </div>
   )
