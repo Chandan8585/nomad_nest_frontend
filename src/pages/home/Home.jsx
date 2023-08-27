@@ -58,7 +58,11 @@ const {hotelCategory} = useCategory();
         <>  
         <Navbar/>
         <Category/>
+        <button className='filter-icon'><span class="material-icons-outlined">
+filter_alt
+</span></button>
         <main>
+    
             { hotelData && hotelData.length > 0 ? (
         <InfiniteScroll
   dataLength={hotelData.length} //This is important field to render the next data
