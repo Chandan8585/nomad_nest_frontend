@@ -4,7 +4,7 @@ const FreeCancel = () => {
   return (
     <div className="filter-container">
     <div className="d-flex align-center gap-larger">
-      <span className="filter-label">Free Cancelation</span>
+      <span className="filter-label">Free Cancellation</span>
       <label className="slide">
         <input
           type="checkbox"
