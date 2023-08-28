@@ -11,7 +11,7 @@ const initialState = {
 }
 const DateContext = createContext(initialState);
 const DateProvider = ({children})=> {
-    const [{checkInDate, checkOutDate, isSearchModalOpen,isSearchResultOpen ,guest, destination}, dateDispatch] = useReducer(dateReducer, initialState); 
+    const [{checkInDate, checkOutDate, isSearchModalOpen, isSearchResultOpen ,guest, destination}, dateDispatch] = useReducer(dateReducer, initialState); 
     console.log("dateprovider" , isSearchModalOpen);
 
     return (

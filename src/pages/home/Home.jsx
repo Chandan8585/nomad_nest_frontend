@@ -8,6 +8,9 @@ import Category from '../../components/category/Category';
 import { useCategory } from '../../context/category-context';
 import { useDate } from '../../context/date-context';
 import SearchStayWithDate from '../../components/searchStayWithDate/SearchStayWithDate';
+import { useFilter } from '../../context/filter-context';
+import Filter from '../../components/filters/Filter';
+import { getHotelsByPrice } from '../../utils/price-range';
 const Home = () => {
     const [hotelData , setHotelData] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(16);
@@ -17,6 +20,7 @@ const Home = () => {
    const {isSearchModalOpen} = useDate();
    
 const {hotelCategory} = useCategory();
+const {priceRangeValue, isFilterModalOpen} = useFilter();
     useEffect(()=> {
    (async()=> {
  try {
@@ -50,7 +54,7 @@ const {hotelCategory} = useCategory();
       }, 1000)  
    };
 
-     
+    const filterHotelByPrice = getHotelsByPrice(hotelData, priceRangeValue);
   return (
     <Fragment>
       <main> 
@@ -58,9 +62,7 @@ const {hotelCategory} = useCategory();
         <>  
         <Navbar/>
         <Category/>
-        <button className='filter-icon'><span class="material-icons-outlined">
-filter_alt
-</span></button>
+       
         <main>
     
             { hotelData && hotelData.length > 0 ? (
@@ -68,12 +70,12 @@ filter_alt
   dataLength={hotelData.length} //This is important field to render the next data
   next={fetchMoreData}
   hasMore={hasMore}
-  loader={ hotelData.length > 0 && <h3 className='loading'>Loading...</h3>}
+  loader={ hotelData.length > 0 && <h3 className='loading alert-text'>Loading...</h3>}
   endMessage={<p>You have seen it all</p>}
 >
 <main className='main d-flex align-center wrap gap-larger'>
         {
-           hotelData && hotelData.map((hotel)=> (<HotelCard hotel={hotel} key={hotel._id}/>))
+           filterHotelByPrice && filterHotelByPrice.map((hotel)=> (<HotelCard hotel={hotel} key={hotel._id}/>))
         }
 </main>
 </InfiniteScroll>
@@ -88,6 +90,9 @@ filter_alt
 </main>
 {
   isSearchModalOpen && <SearchStayWithDate/>
+}
+{ 
+            isFilterModalOpen && <Filter/>
 }
     </Fragment>
   )

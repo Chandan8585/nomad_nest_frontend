@@ -5,16 +5,23 @@ import RoomsAndBeds from './roomsAndBeds/RoomsAndBeds'
 import PropertyType from './propertyType/PropertyType'
 import Rating from './rating/Rating'
 import FreeCancel from './freeCancel/FreeCancel'
+import { useFilter } from '../../context/filter-context'
 const Filter = () => {
+  const {filterDispatch} = useFilter();
+  const handleFilterModalClose =()=>{
+        filterDispatch({
+          type: "CLOSE_FILTER_MODAL"
+        })
+  }
   return (
     <div className='filter-modal'>
         <div className="filter-page shadow">
             <div className="d-flex justify-space-between align-center">
                 <span className="filter-label">Filter</span>
-                <button className="btn btn-close cursor-pointer">
-                <span class="material-symbols-outlined">
-               close
-                </span> 
+                <button className="btn btn-close cursor-pointer" onClick={handleFilterModalClose}>
+                <span class="material-icons-outlined">
+                 close
+                 </span>
                 </button>
             </div>
             <PriceRange/>
