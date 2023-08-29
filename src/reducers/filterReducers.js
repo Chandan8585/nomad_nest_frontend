@@ -19,6 +19,30 @@ export const filterReducer = (state, {type, payload})=> {
             priceRangeValue: [payload.priceRangeValue[0] , Math.max(payload.newValue[1], payload.priceRangeValue[0]-payload.minDifference),
              ]
         }
+        case "No_OF_BATHROOMS": return {
+              ...state,
+              noOfBathrooms: payload === "Any" ? payload : payload === "5+" ? 5 : Number(payload)
+        }
+        case "No_OF_BEDROOMS": return {
+            ...state,
+            noOfBedrooms:    payload === "Any" ? payload : payload === "5+" ? 5 : Number(payload),
+        }
+        case "No_OF_BEDS": return {
+            ...state,
+            noOfBeds:    payload === "Any" ? payload : payload === "5+" ? 5 : Number(payload),
+        }
+        case "CHOOSE_PROPERTY": return {
+            ...state,
+            propertyType: payload 
+        }
+        case "SELECTED_RATING": return {
+            ...state,
+            ratingSelected: payload
+        }
+        case "CANCELABLE" : return {
+            ...state,
+            isCancellable : payload
+        }
          default : return state
          
      }
