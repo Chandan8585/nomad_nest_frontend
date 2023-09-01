@@ -13,6 +13,11 @@ const Filter = () => {
           type: "CLOSE_FILTER_MODAL"
         })
   }
+  const handleClearAllFeature = ()=>{
+    filterDispatch({
+      type: "CLEAR_ALL"
+    })
+  }
   return (
     <div className='filter-modal'>
         <div className="filter-page shadow">
@@ -30,8 +35,8 @@ const Filter = () => {
             <Rating/>
             <FreeCancel/>
             <div className="d-flex align-center justify-space-between">
-              <button className="button cursor btn-link-primary">Clear ALL</button>
-              <button className="button cursor btn-primary btn-apply">Apply </button>
+              <button className="button cursor btn-link-primary" onClick={handleClearAllFeature}>Clear ALL</button>
+              <button className="button cursor btn-primary btn-apply" onClick={handleFilterModalClose}>Apply </button>
             </div>
         </div>
     </div>
