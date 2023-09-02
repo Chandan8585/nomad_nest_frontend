@@ -43,6 +43,18 @@ export const filterReducer = (state, {type, payload})=> {
             ...state,
             isCancellable : payload
         }
+        case "CLEAR_ALL" : return {
+            ...state,
+            noOfBedrooms:"Any",
+            noOfBathrooms: "Any",
+            noOfBeds: "Any",
+            isFilterModalOpen: false,
+            priceRangeValue : [300, 20000],
+            propertyType: "Any",
+            ratingSelected: "1",
+            isCancellable: true
+        }
+        
          default : return state
          
      }

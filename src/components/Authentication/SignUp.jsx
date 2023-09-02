@@ -5,19 +5,16 @@ import { validateName } from '../../utils/name-regex';
 import { validateNumber } from '../../utils/number-regex';
 import { validateEmail } from '../../utils/email-regex';
 import { validatePassword } from '../../utils/password-regex';
+import { signUpHandler } from '../../services/AuthSignUp';
 const SignUp = () => {
   const { name, email, password, confirmPassword, mobile, authDispatch} = useAuth();
   console.log({name, email, password, mobile, confirmPassword})
+let isValidateName, isValidateNumber, isValidateEmail,isValidatePassword,isValidateConfirmPassword;
 
-const handleFormSubmit = (event)=> {
-  event.preventDefault();
-  authDispatch({
-    type: "CLEAR_USER_DATA",
-  });
-}
+
 
   const handleNameChange = (event)=> {
-    const isValidateName = validateName( event.target.value)
+     isValidateName = validateName( event.target.value)
 if(isValidateName){
   authDispatch({
     type: "NAME",
@@ -28,7 +25,7 @@ if(isValidateName){
 }
  }
   const handleNumberChange = (event)=> {
-    const isValidateNumber = validateNumber(event.target.value);
+    isValidateNumber = validateNumber(event.target.value);
     if(isValidateNumber){
       authDispatch({
         type: "MOBILE",
@@ -40,7 +37,7 @@ if(isValidateName){
     
   }
   const handleEmailChange = (event)=> {
-    const isValidateEmail = validateEmail(event.target.value);
+    isValidateEmail = validateEmail(event.target.value);
     if(isValidateEmail){
       authDispatch({
         type: "EMAIL",
@@ -52,7 +49,7 @@ if(isValidateName){
 
   }
     const handlePasswordChange = (event)=> {
-      const isValidatePassword = validatePassword(event.target.value);
+      isValidatePassword = validatePassword(event.target.value);
        if(isValidatePassword){
         authDispatch({
           type: "PASSWORD",
@@ -63,8 +60,8 @@ if(isValidateName){
       }
   }
   const handleConfirmPasswordChange = (event)=> {
-    const isValidatePassword = validatePassword(event.target.value);
-    if(isValidatePassword){
+ isValidateConfirmPassword = validatePassword(event.target.value);
+    if(isValidateConfirmPassword){
      authDispatch({
        type: "CONFIRM_PASSWORD",
        payload: event.target.value
@@ -73,6 +70,25 @@ if(isValidateName){
       console.log("invalid CONFIRM_PASSWORD")
     }
   }
+  const handleFormSubmit = (event)=> {
+    event.preventDefault();
+    console.logO("clicked")
+    console.log({isValidateName, 
+      isValidateNumber,
+       isValidateEmail,
+      isValidatePassword,
+       isValidateConfirmPassword})
+    if(isValidateName &&
+      isValidateNumber &&
+       isValidateEmail &&
+      isValidatePassword &&
+       isValidateConfirmPassword){
+        signUpHandler(name, mobile, email, password)
+       }
+  
+  }
+
+  
   return (
     <div className="auth-container">
     <form onSubmit={handleFormSubmit}>

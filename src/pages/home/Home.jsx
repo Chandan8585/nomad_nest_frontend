@@ -11,6 +11,13 @@ import SearchStayWithDate from '../../components/searchStayWithDate/SearchStayWi
 import { useFilter } from '../../context/filter-context';
 import Filter from '../../components/filters/Filter';
 import { getHotelsByPrice } from '../../utils/price-range';
+import { getHotelsByNumberOfRoomsAndBeds } from '../../utils/filter-rooms-beds';
+import { getFilteredPropertyByType } from '../../utils/property-type';
+import { getFilteredHotelByRating } from '../../utils/filter-rating';
+import { getFilteredByCancellableHotels } from '../../utils/filter-cancellable';
+import { useAuth } from '../../context/auth-context';
+import AuthModal from '../../components/AuthModal/AuthModal';
+
 const Home = () => {
     const [hotelData , setHotelData] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(16);
@@ -18,9 +25,10 @@ const Home = () => {
     const [hasMore, setHasMore] = useState(true);
     const [loading, setLoading] = useState(false);
    const {isSearchModalOpen} = useDate();
-   
+   const {isAuthModalOpen} = useAuth();
 const {hotelCategory} = useCategory();
-const {priceRangeValue, isFilterModalOpen} = useFilter();
+const {priceRangeValue, isFilterModalOpen, noOfBathrooms, noOfBeds, noOfBedrooms, propertyType, ratingSelected , isCancellable} = useFilter();
+
     useEffect(()=> {
    (async()=> {
  try {
@@ -55,6 +63,10 @@ const {priceRangeValue, isFilterModalOpen} = useFilter();
    };
 
     const filterHotelByPrice = getHotelsByPrice(hotelData, priceRangeValue);
+    const filterHotelByRoomsAndBeds = getHotelsByNumberOfRoomsAndBeds(filterHotelByPrice, noOfBathrooms, noOfBeds, noOfBedrooms);
+    const filterHotelByPropertyType = getFilteredPropertyByType(filterHotelByRoomsAndBeds, propertyType);
+    const filterHotelByRating = getFilteredHotelByRating(filterHotelByPropertyType, ratingSelected);
+    const filteredHotelByIsCancellable = getFilteredByCancellableHotels(filterHotelByRating, isCancellable);
   return (
     <Fragment>
       <main> 
@@ -75,7 +87,7 @@ const {priceRangeValue, isFilterModalOpen} = useFilter();
 >
 <main className='main d-flex align-center wrap gap-larger'>
         {
-           filterHotelByPrice && filterHotelByPrice.map((hotel)=> (<HotelCard hotel={hotel} key={hotel._id}/>))
+           filteredHotelByIsCancellable && filteredHotelByIsCancellable.map((hotel)=> (<HotelCard hotel={hotel} key={hotel._id}/>))
         }
 </main>
 </InfiniteScroll>
@@ -93,6 +105,9 @@ const {priceRangeValue, isFilterModalOpen} = useFilter();
 }
 { 
             isFilterModalOpen && <Filter/>
+}
+{
+          isAuthModalOpen && <AuthModal/>
 }
     </Fragment>
   )

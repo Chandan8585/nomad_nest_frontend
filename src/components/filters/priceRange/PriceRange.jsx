@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import "./priceRange.scss";
 import { useFilter } from '../../../context/filter-context';
-// const value = [200, 15000];
+
 const minDifference = 500;
 function valuetext(value){
   return `${value}`;
