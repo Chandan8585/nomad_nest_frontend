@@ -1,20 +1,24 @@
 import React from 'react'
 import "./Auth.scss"
 import { useAuth } from '../../context/auth-context'
-import { validateName } from '../../utils/name-regex';
-import { validateNumber } from '../../utils/number-regex';
-import { validateEmail } from '../../utils/email-regex';
-import { validatePassword } from '../../utils/password-regex';
+import {
+  validateEmail,
+  validateName,
+  validateNumber,
+  validatePassword,
+} from "../../utils/index";
 import { signUpHandler } from '../../services/AuthSignUp';
+
+let isValidateName, isValidateNumber, isValidateEmail, isValidatePassword, isValidateConfirmPassword;
+
 const SignUp = () => {
   const { name, email, password, confirmPassword, mobile, authDispatch} = useAuth();
   console.log({name, email, password, mobile, confirmPassword})
-let isValidateName, isValidateNumber, isValidateEmail,isValidatePassword,isValidateConfirmPassword;
 
 
 
-  const handleNameChange = (event)=> {
-     isValidateName = validateName( event.target.value)
+const handleNameChange = (event)=> {
+     isValidateName = validateName(event.target.value)
 if(isValidateName){
   authDispatch({
     type: "NAME",
@@ -72,7 +76,7 @@ if(isValidateName){
   }
   const handleFormSubmit = (event)=> {
     event.preventDefault();
-    console.logO("clicked")
+    console.log("clicked")
     console.log({isValidateName, 
       isValidateNumber,
        isValidateEmail,
@@ -84,8 +88,11 @@ if(isValidateName){
       isValidatePassword &&
        isValidateConfirmPassword){
         signUpHandler(name, mobile, email, password)
+        // authDispatch({
+        //   type: "CLEAR_USER_DATA",
+        //  })
        }
-  
+    
   }
 
   
@@ -97,8 +104,7 @@ if(isValidateName){
           Name <span className="asterisk">*</span>{" "}
         </label>
         <input
-          // value={name}
-          type='text'
+          defaultValue ={name}
           className="auth-input"
           placeholder="Enter Name"
           required
@@ -111,8 +117,8 @@ if(isValidateName){
           Mobile Number <span className="asterisk">*</span>{" "}
         </label>
         <input
-          // value={mobile}
-          // type="number"
+          defaultValue={mobile}
+          type="number"
           className="auth-input"
           maxLength="10"
           placeholder="Enter Mobile Number"
@@ -126,7 +132,7 @@ if(isValidateName){
           Email <span className="asterisk">*</span>{" "}
         </label>
         <input
-          // value={email}
+          defaultValue={email}
           className="auth-input"
           placeholder="Enter Email"
           type="email"
@@ -139,7 +145,7 @@ if(isValidateName){
           Password <span className="asterisk">*</span>{" "}
         </label>
         <input
-          // value={password}
+          defaultValue={password}
           className="auth-input"
           placeholder="Enter Password"
           type="password"
@@ -152,7 +158,7 @@ if(isValidateName){
           Confirm Password <span className="asterisk">*</span>{" "}
         </label>
         <input
-          // value={confirmPassword}
+          defaultValue={confirmPassword}
           className="auth-input"
           placeholder="Enter Password"
           type="password"
