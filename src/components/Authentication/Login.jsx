@@ -1,29 +1,50 @@
 import React from 'react'
 import "./Auth.scss"
 import { useAuth } from '../../context/auth-context'
+import { validateNumber } from '../../utils/number-regex';
+import { validatePassword } from '../../utils/password-regex';
+import { LoginHandler } from '../../services/AuthLogin';
+let isValidateNumber, isValidatePassword;
 const Login = () => {
-  const {authDispatch} = useAuth();
+  
+  const {mobile, password, authDispatch} = useAuth();
   const handleMobileChange = (event)=> {
-     authDispatch({
+  isValidateNumber = validateNumber(event.target.value)
+  if(isValidateNumber){
+    authDispatch({
       case : "MOBILE",
       payload : event.target.value
      })
+     }
   }
   const handlePasswordChange = (event)=> {
-    authDispatch({
-      case : "PASSWORD",
-      payload : event.target.value
-     })
-  }
+    isValidatePassword = validatePassword(event.target.value)
+if(isValidatePassword){
+  authDispatch({
+    case : "PASSWORD",
+    payload : event.target.value
+   })
+} 
+}
+const handleFormSubmit = (event)=> {
+   event.preventDefault();
+   console.log("Login Validation",{isValidateNumber,isValidatePassword})
+   if(isValidateNumber && isValidatePassword){
+     LoginHandler(mobile, password);
+   }
+  //  authDispatch({
+  //   type: "CLEAR_USER_DATA",
+  //  })
+}
   return (
     <div className="auth-container">
-    <form>
+    <form onSubmit={handleFormSubmit}>
       <div className="d-flex direction-column lb-in-container">
         <label className="auth-label">
           Mobile Number <span className="asterisk">*</span>{" "}
         </label>
         <input
-    
+          defaultValue={mobile}
           type="number"
           className="auth-input"
           maxLength="10"
@@ -37,7 +58,7 @@ const Login = () => {
           Password <span className="asterisk">*</span>{" "}
         </label>
         <input
-        
+        defaultValue={password}
           className="auth-input"
           placeholder="Enter Password"
           type="password"
