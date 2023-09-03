@@ -26,15 +26,27 @@ if(isValidatePassword){
    })
 } 
 }
-const handleFormSubmit = (event)=> {
+const handleFormSubmit = async(event)=> {
    event.preventDefault();
    console.log("Login Validation",{isValidateNumber,isValidatePassword})
    if(isValidateNumber && isValidatePassword){
-     LoginHandler(mobile, password);
+    const {accessToken, userName} = await LoginHandler(mobile, password);
+    console.log("from login", {accessToken, userName});
+    authDispatch({
+      type: "SET_ACCESS_TOKEN",
+      payload: accessToken,
+    })
+    authDispatch({
+      type: "SET_USERNAME",
+      payload: userName,
+    })
    }
-  //  authDispatch({
-  //   type: "CLEAR_USER_DATA",
-  //  })
+   authDispatch({
+    type: "CLEAR_USER_DATA",
+   })
+   authDispatch({
+    type: "AUTH_MODAL_OPEN",
+   });
 }
   return (
     <div className="auth-container">
