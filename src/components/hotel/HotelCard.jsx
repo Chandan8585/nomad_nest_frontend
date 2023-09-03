@@ -1,18 +1,42 @@
 import React from 'react'
 import "./hotelcard.scss"
 import { useNavigate } from 'react-router-dom';
+import { useWishlist } from '../../context/wishlist-context';
+import { findDuplicate } from '../../utils/find-hotel-in-whishlist';
 const HotelCard = ({hotel}) => {
     const {_id, image, name, address, state, rating, price} = hotel;
            const navigate = useNavigate();
-          
+           const {wishlist, wishlistDispatch} = useWishlist();
+           const isHotelInWishlist = findDuplicate(wishlist, _id);
+
     const handleHotelCardClick = ()=> {
         
         navigate(`/hotels/${name}/${address}-${state}/${_id}/reserve`);
     }
+   const handleWishlistClick = ()=> {
+    if(!isHotelInWishlist){
+      wishlistDispatch({
+        type: "ADD_TO_WISHLIST",
+        payload: hotel
+       })
+    } else{
+      wishlistDispatch({
+        type: "REMOVE_FROM_WISHLIST",
+        payload: _id
+      })
+    }
+
+    wishlistDispatch({
+      type: "WISHLIST_SELECTED",
+    
+    })
+       console.log(wishlist)
+   }
   return (
-    <div className="relative hotelcard-container shadow cursor-pointer" key={_id} onClick={handleHotelCardClick}>
+    <div className="relative hotelcard-container shadow cursor-pointer" key={_id} >
     <div 
-    // onClick={handleHotelCardClick}
+    
+    onClick={handleHotelCardClick}
     >
       <img className="img" src={image} alt={name} />
       <div className="hotelcard-details">
@@ -34,14 +58,12 @@ const HotelCard = ({hotel}) => {
     </div>
     <button
       className="button btn-wishlist absolute d-flex align-center"
-    //   onClick={handleWishlistClick}
+      onClick={handleWishlistClick}
     >
       <span
         className={
-            "material-icons favorite cursor"
-        //  ${
-        //   isHotelInWishlist ? "fav-selected" : ""
-        // }`
+            `material-icons favorite cursor ${isHotelInWishlist ? "fav-selected": ""}`
+     
     }
       >
         favorite

@@ -41,6 +41,14 @@ export const authReducers = (state, {type, payload})=> {
               email: "",
               confirmPassword:""
             }
+            case "SET_ACCESS_TOKEN": return {
+              ...state,
+              accessToken: payload
+            }
+            case "SET_USERNAME": return{
+              ...state,
+              userName: payload
+            }
             default: return state
           }
 }

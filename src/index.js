@@ -7,6 +7,7 @@ import { CategoryProvider } from './context/category-context';
 import { DateProvider } from './context/date-context';
 import { FilterProvider } from './context/filter-context';
 import { AuthProvider } from './context/auth-context';
+import { WishListProvider } from './context/wishlist-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,9 @@ root.render(
          <FilterProvider>
     <DateProvider>
     <CategoryProvider>
-  <App />
+      <WishListProvider>
+      <App />
+      </WishListProvider>
   </CategoryProvider>
     </DateProvider>
     </FilterProvider>
