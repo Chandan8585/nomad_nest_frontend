@@ -34,13 +34,15 @@ import axios from "axios"
 
 export const LoginHandler = async(number, password)=> {
     try {
-        const {data : {accessToken, userName}} = await axios.post("https://nomad-nest-backend.onrender.com/api/auth/login", {
+         const {
+            data: { accessToken, userName },
+          } = await axios.post("https://nomad-nest-backend.onrender.com/api/auth/login", {
             number: number, password: password
-          })
+          });
           console.log("Logged IN");
-
-          console.log({accessToken, userName});
-
+            // console.log(data);
+        //   console.log({accessToken, userName});
+               return {accessToken, userName} ;
 
     } catch (error) {
         console.log("unable to login")

@@ -88,9 +88,9 @@ if(isValidateName){
       isValidatePassword &&
        isValidateConfirmPassword){
         signUpHandler(name, mobile, email, password)
-        // authDispatch({
-        //   type: "CLEAR_USER_DATA",
-        //  })
+        authDispatch({
+          type: "CLEAR_USER_DATA",
+         })
        }
     
   }

@@ -35,11 +35,12 @@ export const authReducers = (state, {type, payload})=> {
             }
            
             case "CLEAR_USER_DATA": return {
+              ...state,
               name: "",
               mobile: "",
               password:"",
               email: "",
-              confirmPassword:""
+              confirmPassword:"",
             }
             case "SET_ACCESS_TOKEN": return {
               ...state,
