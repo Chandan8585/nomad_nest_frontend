@@ -29,7 +29,8 @@ if(isValidatePassword){
 const handleFormSubmit = async(event)=> {
    event.preventDefault();
    console.log("Login Validation",{isValidateNumber,isValidatePassword})
-   if(isValidateNumber && isValidatePassword){
+
+     if(isValidateNumber && isValidatePassword){
     const {accessToken, userName} = await LoginHandler(mobile, password);
     console.log("from login", {accessToken, userName});
     authDispatch({
@@ -41,12 +42,27 @@ const handleFormSubmit = async(event)=> {
       payload: userName,
     })
    }
+ 
+  // LoginHandler(mobile, password);
    authDispatch({
     type: "CLEAR_USER_DATA",
    })
    authDispatch({
     type: "AUTH_MODAL_OPEN",
    });
+}
+
+const handleTestCredentials = async (event)=> {
+    event.preventDefault();
+    const {accessToken, userName} =await LoginHandler("7827352953", "Abcd@1234");
+    authDispatch({
+      type: "SET_ACCESS_TOKEN",
+      payload: accessToken,
+    })
+    authDispatch({
+      type: "SET_USERNAME",
+      payload: userName,
+    })
 }
   return (
     <div className="auth-container">
@@ -85,7 +101,7 @@ const handleFormSubmit = async(event)=> {
     <div className="cta">
       <button
         className="button btn-outline-primary cursor-pointer"
-
+        onClick={handleTestCredentials}
       >
         Login with Test Credentials
       </button>
@@ -96,3 +112,25 @@ const handleFormSubmit = async(event)=> {
 }
 
 export default Login
+
+
+
+
+
+
+
+
+
+
+ //  if(isValidateNumber && isValidatePassword){
+  //   const {accessToken, userName} = await LoginHandler(mobile, password);
+  //   console.log("from login", {accessToken, userName});
+  //   authDispatch({
+  //     type: "SET_ACCESS_TOKEN",
+  //     payload: accessToken,
+  //   })
+  //   authDispatch({
+  //     type: "SET_USERNAME",
+  //     payload: userName,
+  //   })
+  //  }

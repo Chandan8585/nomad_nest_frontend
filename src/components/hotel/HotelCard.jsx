@@ -3,34 +3,39 @@ import "./hotelcard.scss"
 import { useNavigate } from 'react-router-dom';
 import { useWishlist } from '../../context/wishlist-context';
 import { findDuplicate } from '../../utils/find-hotel-in-whishlist';
+import { useAuth } from '../../context/auth-context';
 const HotelCard = ({hotel}) => {
     const {_id, image, name, address, state, rating, price} = hotel;
            const navigate = useNavigate();
+           const {accessToken, authDispatch} = useAuth();
            const {wishlist, wishlistDispatch} = useWishlist();
            const isHotelInWishlist = findDuplicate(wishlist, _id);
-
+         
     const handleHotelCardClick = ()=> {
         
         navigate(`/hotels/${name}/${address}-${state}/${_id}/reserve`);
     }
    const handleWishlistClick = ()=> {
-    if(!isHotelInWishlist){
-      wishlistDispatch({
-        type: "ADD_TO_WISHLIST",
-        payload: hotel
-       })
-    } else{
-      wishlistDispatch({
-        type: "REMOVE_FROM_WISHLIST",
-        payload: _id
-      })
+    if(accessToken){
+      if(!isHotelInWishlist){
+        wishlistDispatch({
+          type: "ADD_TO_WISHLIST",
+          payload: hotel
+         })
+      } else{
+        wishlistDispatch({
+          type: "REMOVE_FROM_WISHLIST",
+          payload: _id
+        })
+      }
+     navigate("/hotels/wishlist")  
+         console.log(wishlist)
+    }else{
+      authDispatch({
+        type: "AUTH_MODAL_OPEN",
+       });
     }
 
-    wishlistDispatch({
-      type: "WISHLIST_SELECTED",
-    
-    })
-       console.log(wishlist)
    }
   return (
     <div className="relative hotelcard-container shadow cursor-pointer" key={_id} >
