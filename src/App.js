@@ -6,6 +6,7 @@ import SearchResults from './pages/searchResults/SearchResults';
 import Filter from './components/filters/Filter';
 import AuthModal from './components/AuthModal/AuthModal';
 import WishList from './pages/wishlist/WishList';
+import Payment from './pages/payment/Payment';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path='/hotels/filter' element= {<Filter/>} />
         <Route path='/hotels/auth' element= {<AuthModal/>} />
         <Route path='/hotels/wishlist' element= {<WishList/>} />
-        
+        <Route path='/confirm-booking/stay/:id' element= {<Payment/>} />
       </Routes>
     </div>
   );
