@@ -4,7 +4,7 @@ import { useDate } from '../../../context/date-context'
 import DateSelector from '../../dateSelector/DateSelector'
 import { useNavigate } from 'react-router-dom'
 const FinalPrice = ({singleHotel}) => {
- const {id, price, rating} = singleHotel
+ const {_id, price, rating} = singleHotel
  const {dateDispatch, guest, checkInDate, checkOutDate} = useDate();
  
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const FinalPrice = ({singleHotel}) => {
        })
  }
  const handleReserveClick = ()=> {
-       navigate(`/confirm-booking/stay/${id}`)
+       navigate(`/confirm-booking/stay/${_id}`)
 
  }
   return (

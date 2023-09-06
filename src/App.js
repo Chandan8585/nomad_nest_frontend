@@ -7,6 +7,7 @@ import Filter from './components/filters/Filter';
 import AuthModal from './components/AuthModal/AuthModal';
 import WishList from './pages/wishlist/WishList';
 import Payment from './pages/payment/Payment';
+import OrderSummary from './pages/order-summary/OrderSummary';
 
 function App() {
   return (
@@ -19,9 +20,13 @@ function App() {
         <Route path='/hotels/auth' element= {<AuthModal/>} />
         <Route path='/hotels/wishlist' element= {<WishList/>} />
         <Route path='/confirm-booking/stay/:id' element= {<Payment/>} />
+        <Route path='/hotels/order-summary' element= {<OrderSummary/>} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+
+// 

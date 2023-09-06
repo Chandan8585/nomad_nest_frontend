@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import "./payment.scss"
 import { Fragment } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDate } from '../../context/date-context'
-
+import { v4 as uuid } from "uuid";
 const Payment = () => {
    const {checkInDate, checkOutDate, guest} = useDate();
    const {id} = useParams();
-    
+    const navigate = useNavigate();
    const [singleHotel, setSingleHotel] = useState({});
-   
-   
-
+   const {image,name, address, state, price, rating} = singleHotel
+   const numberOfNights =
+   checkInDate && checkOutDate
+     ? (checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 3600 * 24)
+     : 0;
+   const totalPayableAmount = price * numberOfNights + 150;
    useEffect(()=> {
         (async()=> {
            try {
@@ -25,7 +28,52 @@ const Payment = () => {
            }
         } )()
    }, [id]);
-    const {image,name, price, rating} = singleHotel
+
+
+   const LoadScript = (source)=> {
+     return new Promise(resolve => {
+      const Script = document.createElement("script");
+      Script.src = source;
+      Script.onload = resolve(true);
+      Script.onerror = resolve(false);
+      document.body.appendChild(Script);
+     })
+   } 
+   const handleConfirmBooking = async()=> {
+    const response = await LoadScript("https://checkout.razorpay.com/v1/checkout.js");
+    if(!response){
+      console.log({message: "Razorpay SDK failed to load"});
+    }
+    const options = {
+      key: "rzp_test_JX7jDsaYTwl8CJ",
+      amount: totalPayableAmount * 100,
+      currency : "INR",
+      name: "Nomad_Nest",
+      email: "chandanwingshr@gmail.com",
+      contact: "8851479441",
+      description: "Thank you For Booking with us",
+
+      handler: ({payment_id}) => {
+        setSingleHotel({ ...singleHotel, 
+          orderId: uuid(),
+         payment_id,
+         checkInDate: checkInDate.toLocaleDateString("en-US", {day:"numeric",month:"short"}),
+         checkOutDate: checkOutDate.toLocaleDateString("en-US", { day: "numeric", month: "short" }),
+         totalPayableAmount
+        });
+        navigate("/order-summary");
+      },
+
+      prefill: {
+         name: "Chandan Pratap",
+         email: "chandanwingshr@gmail.com",
+         Contact: "8851479441"
+      }
+    }
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.Open();
+      
+   };
   return (
     <Fragment>
     <header className="heading">
@@ -66,7 +114,7 @@ const Payment = () => {
         </div>
         <button
           className="button btn-primary btn-reserve cursor btn-pay"
-        
+        onClick={handleConfirmBooking}
         >
           Confirm Booking
         </button>
@@ -78,7 +126,7 @@ const Payment = () => {
             <div className="d-flex direction-column grow-shrink-basis">
               <span>{name}</span>
               <span>
-                
+               {address} {state}
               </span>
             </div>
             <div className="rating-container">
