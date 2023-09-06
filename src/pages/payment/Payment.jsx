@@ -69,7 +69,7 @@ const Payment = () => {
          email: "chandanwingshr@gmail.com",
          Contact: "8851479441"
       }
-    },
+    }
     const paymentObject = new window.Razorpay(options);
     paymentObject.Open();
       
