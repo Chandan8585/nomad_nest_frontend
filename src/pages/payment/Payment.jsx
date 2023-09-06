@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDate } from '../../context/date-context'
-
+import { v4 as uuid } from "uuid";
 const Payment = () => {
    const {checkInDate, checkOutDate, guest} = useDate();
    const {id} = useParams();
@@ -31,7 +31,7 @@ const Payment = () => {
 
 
    const LoadScript = (source)=> {
-     return new prommise(resolve => {
+     return new Promise(resolve => {
       const Script = document.createElement("script");
       Script.src = source;
       Script.onload = resolve(true);
@@ -55,7 +55,7 @@ const Payment = () => {
 
       handler: ({payment_id}) => {
         setSingleHotel({ ...singleHotel, 
-          orderId: uuId(),
+          orderId: uuid(),
          payment_id,
          checkInDate: checkInDate.toLocaleDateString("en-US", {day:"numeric",month:"short"}),
          checkOutDate: checkOutDate.toLocaleDateString("en-US", { day: "numeric", month: "short" }),
