@@ -1,0 +1,42 @@
+/* OrderSummary.css */
+
+.order-summary-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .order-summary {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .order-details {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  /* Add more CSS to style your order summary page as needed */
+  

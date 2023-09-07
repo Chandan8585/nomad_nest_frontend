@@ -7,7 +7,7 @@ import { useAuth } from '../../context/auth-context';
 const HotelCard = ({hotel}) => {
     const {_id, image, name, address, state, rating, price} = hotel;
            const navigate = useNavigate();
-           const {accessToken, authDispatch} = useAuth();
+           const {authDispatch} = useAuth();
            const {wishlist, wishlistDispatch} = useWishlist();
            const isHotelInWishlist = findDuplicate(wishlist, _id);
          
@@ -16,6 +16,7 @@ const HotelCard = ({hotel}) => {
         navigate(`/hotels/${name}/${address}-${state}/${_id}/reserve`);
     }
    const handleWishlistClick = ()=> {
+    const accessToken = localStorage.getItem("accessToken");
     if(accessToken){
       if(!isHotelInWishlist){
         wishlistDispatch({

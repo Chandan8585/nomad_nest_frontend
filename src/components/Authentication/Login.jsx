@@ -33,10 +33,12 @@ const handleFormSubmit = async(event)=> {
      if(isValidateNumber && isValidatePassword){
     const {accessToken, userName} = await LoginHandler(mobile, password);
     console.log("from login", {accessToken, userName});
-    authDispatch({
-      type: "SET_ACCESS_TOKEN",
-      payload: accessToken,
-    })
+    // authDispatch({
+    //   type: "SET_ACCESS_TOKEN",
+    //   payload: accessToken,
+    // })
+    localStorage.setItem("accessToken", accessToken);
+
     authDispatch({
       type: "SET_USERNAME",
       payload: userName,
@@ -55,10 +57,11 @@ const handleFormSubmit = async(event)=> {
 const handleTestCredentials = async (event)=> {
     event.preventDefault();
     const {accessToken, userName} =await LoginHandler("7827352953", "Abcd@1234");
-    authDispatch({
-      type: "SET_ACCESS_TOKEN",
-      payload: accessToken,
-    })
+    // authDispatch({
+    //   type: "SET_ACCESS_TOKEN",
+    //   payload: accessToken,
+    // })
+    localStorage.setItem("accessToken", accessToken);
     authDispatch({
       type: "SET_USERNAME",
       payload: userName,
