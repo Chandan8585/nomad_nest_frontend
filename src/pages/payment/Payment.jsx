@@ -5,8 +5,11 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDate } from '../../context/date-context'
 import { v4 as uuid } from "uuid";
+// import { useAuth } from '../../context/auth-context'
 const Payment = () => {
    const {checkInDate, checkOutDate, guest} = useDate();
+  //  const {accessToken} = useAuth();
+  // const accessToken = localStorage.getItem("accessToken")
    const {id} = useParams();
     const navigate = useNavigate();
    const [singleHotel, setSingleHotel] = useState({});
@@ -61,17 +64,17 @@ const Payment = () => {
          checkOutDate: checkOutDate.toLocaleDateString("en-US", { day: "numeric", month: "short" }),
          totalPayableAmount
         });
-        navigate("/order-summary");
+        navigate("/hotels/order-summary");
       },
 
       prefill: {
          name: "Chandan Pratap",
          email: "chandanwingshr@gmail.com",
-         Contact: "8851479441"
+         contact: "8851479441"
       }
     }
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.Open();
+    const paymentObject = await new window.Razorpay(options);
+    paymentObject.open();
       
    };
   return (
@@ -152,11 +155,11 @@ const Payment = () => {
             </div>
             <div className="final-price d-flex align-center justify-space-between">
               <span className="span">Service fee</span>
-              <span className="span">Rs. 200</span>
+              <span className="span">Rs. 150</span>
             </div>
             <div className="final-price d-flex align-center justify-space-between">
               <span className="span">Total</span>
-              <span className="span">Rs. {price + 200}</span>
+              <span className="span">Rs. {totalPayableAmount}</span>
             </div>
           </div>
         </div>
