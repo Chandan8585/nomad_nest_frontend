@@ -21,6 +21,9 @@ function App() {
         <Route path='/hotels/wishlist' element= {<WishList/>} />
         <Route path='/confirm-booking/stay/:id' element= {<Payment/>} />
         <Route path='/hotels/order-summary/:id' element= {<OrderSummary/>} />
+        {/* <Route path='/hotels/order-summary/:id' element={<OrderSummary />} /> */}
+
+        
       </Routes>
     </div>
   );

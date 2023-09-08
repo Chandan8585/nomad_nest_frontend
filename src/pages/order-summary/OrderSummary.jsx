@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useAuth } from '../../context/auth-context'
+// import { useAuth } from '../../context/auth-context'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import "./orderSummary.scss"
+import { useDate } from '../../context/date-context';
+import { v4 as uuid } from "uuid";
+
 const OrderSummary = () => {
      const [singleHotel, setSingleHotel] = useState({});
-    const {checkInDate, checkOutDate} = useAuth();
+    const {checkInDate, checkOutDate} = useDate();
+    
     const {id} = useParams();
+  const OrderId = uuid()
+    
     useEffect(()=> {
         (async()=> {
            try {
@@ -21,7 +27,8 @@ const OrderSummary = () => {
    }, [id]);
     const {image,name, address, state, price} = singleHotel
 
-   const numberOfNights =
+   const numberOfNights = 
+  
    checkInDate && checkOutDate
      ? (checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 3600 * 24)
      : 0;
@@ -33,15 +40,25 @@ const OrderSummary = () => {
       <div className="order-details">
         <h2>Booking Details</h2>
         <p>Hotel: {name}</p>
-        <p>Check-in Date: {checkInDate}</p>
-        <p>Check-out Date: {checkOutDate}</p>
+        <p>Check-in Date: {checkInDate && checkInDate.toLocaleDateString("en-US", {
+            day:"numeric",
+            month:"short",
+            // year: "numeric"
+        })}</p>
+        <p>Check-out Date: {checkInDate && checkOutDate.toLocaleDateString("en-US", {
+            day:"numeric",
+            month:"short",
+            // year: "numeric"
+        })}</p>
+        
         <p>Total Amount: Rs. {totalPayableAmount}</p>
-        <p>Address {address}{state}</p>
-        <p>Order ID: {`${id+1}`}</p>
+        <p>Address: {address}{" "}{state}</p>
+        <div>
+        <img src={image} alt="" className='object-fit image'/>
       </div>
-      <div>
-        <img src={image} alt="" />
+        <p>Order ID: {`${OrderId}`}</p>
       </div>
+    
     </div>
   </div>
   )
