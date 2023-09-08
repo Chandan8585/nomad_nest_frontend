@@ -9,7 +9,7 @@ const WishList = () => {
   return (
     <Fragment>
           <Navbar/>
-          <h2 className="heading-2 d-flex justify-center">Your Wishlist</h2>
+          <h2 className="heading-2 d-flex justify-center wrap">Your Wishlist</h2>
       { wishlist.length > 0 ?  
      (   <section className="wishlist-page d-flex align-center wrap gap-larger">
           {wishlist &&

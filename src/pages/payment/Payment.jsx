@@ -32,7 +32,7 @@ const Payment = () => {
         } )()
    }, [id]);
 
-
+   const OrderId = uuid()
    const LoadScript = (source)=> {
      return new Promise(resolve => {
       const Script = document.createElement("script");
@@ -55,16 +55,22 @@ const Payment = () => {
       email: "chandanwingshr@gmail.com",
       contact: "8851479441",
       description: "Thank you For Booking with us",
-
+      
+     
       handler: ({payment_id}) => {
         setSingleHotel({ ...singleHotel, 
-          orderId: uuid(),
+          orderId: OrderId,
          payment_id,
          checkInDate: checkInDate.toLocaleDateString("en-US", {day:"numeric",month:"short"}),
          checkOutDate: checkOutDate.toLocaleDateString("en-US", { day: "numeric", month: "short" }),
-         totalPayableAmount
+         totalPayableAmount 
+         
         });
-        navigate("/hotels/order-summary");
+
+        navigate(`/hotels/order-summary/${id}?OrderId=${uuid()}`);
+        console.log(OrderId);
+        console.log({id});
+
       },
 
       prefill: {
