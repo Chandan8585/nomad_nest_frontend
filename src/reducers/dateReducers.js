@@ -41,11 +41,7 @@ export const dateReducer = (state, {type, payload}) => {
                    ...state,
                    destination: payload
             } 
-            // case "ORDER_SUMMARY_PASSING":
-            // return{
-            //     ...state,
-
-            // }     
+      
             default: return state 
            }
 }

@@ -1,0 +1,34 @@
+.user-modal-container{
+    position: absolute;
+    max-height: 10rem;
+    width: 10rem;
+    color: black;
+    background-color: white;
+    z-index: 5;
+    right: 5.5rem;
+    top: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    // border: 2px solid black;
+    justify-content: space-around;
+
+}
+.modal-options{
+    display: flex;
+    width: 100%;
+    height: 2.6rem;
+    border-radius: 5px;
+    font-size: large;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    // border: none;
+}
+
+.modal-options:active {
+    transform: scale(0.95); /* Shrink the button slightly when clicked */
+  }

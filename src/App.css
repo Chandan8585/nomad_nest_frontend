@@ -22,3 +22,7 @@ body {
   overflow-y: auto;
   background-color: var(--background-color);
 }
+.custom-toast {
+  background-color: orange;
+  color: white; /* Text color */
+}

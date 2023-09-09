@@ -3,22 +3,26 @@ import "./AuthModal.scss"
 import { useAuth } from '../../context/auth-context'
 import Login from '../Authentication/Login';
 import SignUp from '../Authentication/SignUp';
+import { toast } from 'react-toastify';
 const AuthModal = () => {
     const {authDispatch, selectedTab} = useAuth();
     const handleCloseModal = ()=> {
           authDispatch({
             type: "AUTH_MODAL_OPEN"
           })
+          toast.success("Authentication modal Open");
     }
     const handleLoginClick = ()=> {
         authDispatch({
             type: "SWITCH_TO_LOGIN"
         })
+        toast.success("Login modal Open");
     }
     const handleSignUpClick = ()=> {
       authDispatch({
         type: "SWITCH_TO_SIGNUP"
       })
+      toast.success("SignUp modal Open");
     }
   return (
     <div className="auth-modal-container fixed">

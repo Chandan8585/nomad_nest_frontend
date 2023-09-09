@@ -6,6 +6,7 @@
     top: 0;
     left: 0;
     z-index: 5;
+    // position: relative;
   }
   
   .destination-options {
@@ -62,4 +63,14 @@
     color: var(--text-color-primary);
 
     opacity: .7;
+  }
+
+  .close-search-modal-btn{
+    position: absolute;
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+    left: 1rem;
+    top: 1rem;
+    background: transparent;
   }

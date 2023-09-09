@@ -3,6 +3,7 @@ import "./FinalPrice.scss"
 import { useDate } from '../../../context/date-context'
 import DateSelector from '../../dateSelector/DateSelector'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 const FinalPrice = ({singleHotel}) => {
  const {_id, price, rating} = singleHotel
  const {dateDispatch, guest, checkInDate, checkOutDate} = useDate();
@@ -13,9 +14,11 @@ const FinalPrice = ({singleHotel}) => {
         type: "ADD_GUEST",
         payload: event.target.value
        })
+       toast.success(`${guest} Guests added`);
  }
  const handleReserveClick = ()=> {
        navigate(`/confirm-booking/stay/${_id}`)
+       toast.success("Proceeding for payment");
 
  }
   return (

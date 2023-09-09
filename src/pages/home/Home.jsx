@@ -70,7 +70,7 @@ const {priceRangeValue, isFilterModalOpen, noOfBathrooms, noOfBeds, noOfBedrooms
   return (
     <Fragment>
       <main> 
-      { loading ? (
+  { loading ? (
         <>  
         <Navbar/>
         <Category/>
@@ -78,7 +78,7 @@ const {priceRangeValue, isFilterModalOpen, noOfBathrooms, noOfBeds, noOfBedrooms
         <main>
     
             { hotelData && hotelData.length > 0 ? (
-        <InfiniteScroll
+          <InfiniteScroll
   dataLength={hotelData.length} //This is important field to render the next data
   next={fetchMoreData}
   hasMore={hasMore}

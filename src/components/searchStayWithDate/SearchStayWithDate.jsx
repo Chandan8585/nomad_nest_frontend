@@ -5,6 +5,8 @@ import { useCategory } from "../../context/category-context";
 import axios from "axios";
 import { useDate } from "../../context/date-context";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 const SearchStayWithDate = () => {
   const [hotelData, setHotelData] = useState([]);
   const { hotelCategory } = useCategory();
@@ -54,7 +56,14 @@ const SearchStayWithDate = () => {
       type: "SEARCH_MODAL_CLOSE",
     });
     navigate(`/hotels/${destination}`);
+    toast.success("Going to Search Result Page" );
   };
+  const handleSearchClose = ()=>{
+    dateDispatch({
+      type: "SEARCH_MODAL_CLOSE",
+    });
+    toast.success("Search Bar Closed");
+  }
 
   const destinationOptions = hotelData.filter(
     ({ address, city, state, country }) =>
@@ -66,7 +75,11 @@ const SearchStayWithDate = () => {
 
   console.log(destination, guest);
   return (
-    <div className="destination-container">
+    <div className="destination-container" >
+      <button className="close-search-modal-btn" onClick={handleSearchClose}>
+        .
+      </button>
+    
       <div className="d-flex align-center justify-center destination-options">
         <div className="location-search loc-container">
           <label className="label">Where</label>

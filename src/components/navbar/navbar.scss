@@ -64,3 +64,30 @@
   .cursor-pointer:hover {
     cursor: pointer;
   }
+
+  .wishlist-btn{
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+  }
+
+  .wishlist{
+    height: 5rem;
+    width: 5rem;
+    font-size: 2.1rem;
+    position: absolute;
+    top: 1px;
+    bottom: 10rem;
+    left: 10rem;
+  }
+  .number-of-items{
+    z-index: 2;
+    width: 20px;
+    position: absolute;
+    left: 13rem;
+    top: -0.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+
+  }

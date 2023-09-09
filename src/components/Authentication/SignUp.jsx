@@ -24,6 +24,7 @@ if(isValidateName){
     type: "NAME",
     payload: event.target.value 
   })
+  
 }else{
   console.log("invalid NAME")
 }
@@ -35,6 +36,9 @@ if(isValidateName){
         type: "MOBILE",
         payload: event.target.value
       })
+      authDispatch({
+        type: "CLEAR_USER_DATA",
+       })
     }else{
       console.log("invalid MOBILE")
     }
@@ -59,6 +63,9 @@ if(isValidateName){
           type: "PASSWORD",
           payload: event.target.value
         })
+        authDispatch({
+          type: "CLEAR_USER_DATA",
+         })
        }else{
         console.log("invalid PASSWORD")
       }
@@ -69,6 +76,9 @@ if(isValidateName){
      authDispatch({
        type: "CONFIRM_PASSWORD",
        payload: event.target.value
+     })
+     authDispatch({
+      type: "CLEAR_USER_DATA",
      })
     }else{
       console.log("invalid CONFIRM_PASSWORD")

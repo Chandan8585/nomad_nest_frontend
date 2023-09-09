@@ -44,4 +44,21 @@
   }
   
   /* Add more CSS to style your order summary page as needed */
+/* Add these styles to your CSS file */
+.download-pdf-btn {
+    position: absolute;
+    right: 25rem;
+    height: 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+//   .download-pdf-btn:hover {
+//     background-color: var(white); /* Change to your desired hover color */
+//   }
+  
+  .download-pdf-btn:active {
+    transform: scale(0.95); /* Shrink the button slightly when clicked */
+  }
   

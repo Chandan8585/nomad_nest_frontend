@@ -3,6 +3,7 @@ import "./category.scss";
 import axios from 'axios';
 import { useCategory } from '../../context/category-context';
 import { useFilter } from '../../context/filter-context';
+import { toast } from 'react-toastify';
 
 
 const Category = () => {
@@ -23,18 +24,19 @@ const Category = () => {
     }, []);
 
     const handleShowMoreRightClick = () => {
-        setNumberOfCategoryToShow(prev => prev + 10);
+        setNumberOfCategoryToShow(prev => prev + 9);
     }
 
     const handleShowMoreLeftClick = () => {
-        setNumberOfCategoryToShow(prev => prev - 10);
+        setNumberOfCategoryToShow(prev => prev - 9);
     }
    const handleCategoryClick = (category)=> {
          console.log("clicked");
            categoryDispatch({
             type: "HOTEL_CATEGORY",
             payload: category
-           });    
+           });
+           toast.success(`Rendering all hotels from ${category} category`);    
    }
    const handleFilterClick = ()=> {
       filterDispatch({
@@ -43,17 +45,17 @@ const Category = () => {
    }
     return (
         <section className="categories d-flex align-center gap-large cursor-pointer">
-            {numberOfCategoryToShow >= 10 && (
+            {numberOfCategoryToShow >= 9 && (
                 <button className="button btn-category btn-left fixed cursor-pointer"
                     onClick={handleShowMoreLeftClick}
                 >
                     <span className="material-icons-outlined">chevron_left</span>
                 </button>
             )}
-            {categories.slice(numberOfCategoryToShow, numberOfCategoryToShow + 10).map(({ category , _id }) => (
-                <span className={`${category===hotelCategory ? "border-bottom" : ""}`} key={_id} onClick={()=> handleCategoryClick(category)}>{category}</span>
+            {categories.slice(numberOfCategoryToShow, numberOfCategoryToShow + 9).map(({ category , _id }) => (
+                <span className={`category ${category===hotelCategory ? "border-bottom" : ""}`} key={_id} onClick={()=> handleCategoryClick(category)}>{category}</span>
             ))}
-            {numberOfCategoryToShow < categories.length - 10 && (
+            {numberOfCategoryToShow < categories.length - 9 && (
                 <button className="button btn-category btn-right fixed cursor-pointer"
                     onClick={handleShowMoreRightClick}
                 >
