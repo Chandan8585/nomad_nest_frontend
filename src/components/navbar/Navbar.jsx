@@ -7,7 +7,7 @@ import AuthModal from '../AuthModal/AuthModal'
 import { useWishlist } from '../../context/wishlist-context'
 import UserModal from './userModal/UserModal'
 import { toast } from 'react-toastify'
-
+import logo from "../../assets/Nomads-Nest-WEB-LOGO.png"
 const Navbar = () => {
   const {dateDispatch,destination, checkInDate, checkOutDate, guest} = useDate();
   const {authDispatch, isShowModalOpen, isUserModalOpen} = useAuth();
@@ -42,10 +42,10 @@ const handleWishlistClick = ()=> {
 <div>
     <header className="heading d-flex align-center">
       <Link to="/" >
-      <h1 className="heading-1">
+      {/* <h1 className="heading-1">
         Nomad_nest
-    </h1>
-    
+    </h1> */}
+    <img src={logo} alt="" className='app-logo'/>
       </Link>
 
       <div

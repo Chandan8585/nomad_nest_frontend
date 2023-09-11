@@ -10,7 +10,7 @@ const AuthModal = () => {
           authDispatch({
             type: "AUTH_MODAL_OPEN"
           })
-          toast.success("Authentication modal Open");
+          toast.success("Authentication modal Closed");
     }
     const handleLoginClick = ()=> {
         authDispatch({

@@ -6,7 +6,9 @@
 
 :root {
   --background-color: #fafafa;
-  --primary-color: #ff6525;
+  /* --primary-color: #ff6525; */
+  --primary-color: #674338;
+
   --text-color-primary: #363030;
   --accent-color: #d2d2d2;
   --container-border-color: #707070;

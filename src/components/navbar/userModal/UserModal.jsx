@@ -2,6 +2,7 @@ import React from 'react'
 import "./userModal.scss"
 import { useAuth } from '../../../context/auth-context'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const UserModal = () => {
     const {authDispatch} = useAuth();
     const navigate = useNavigate();
@@ -9,7 +10,8 @@ const UserModal = () => {
         localStorage.removeItem("accessToken")
         authDispatch({
             type: "AUTH_MODAL_OPEN"
-          })
+          }) 
+          toast.success("Logged Out Successful");
     }
     const handleUserProfileClick = ()=> {
         navigate("/user-profile")

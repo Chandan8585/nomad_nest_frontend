@@ -31,7 +31,7 @@ const SingleHotel = () => {
     <Fragment>
         <Navbar/>
         <main className='single-hotel-page'>
-            <span>{name}, {state}</span>
+            <span className='hotel-name'>{name}, {state}</span>
         <HotelImage singleHotel= {singleHotel}/>
         <div className='d-flex'>
           <HotelDetails singleHotel={singleHotel}/>

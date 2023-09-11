@@ -5,6 +5,7 @@
   position: fixed;
   z-index: 1;
   width: 100vw;
+  margin-right: 2rem;
 }
 
 .gap-large {
@@ -24,8 +25,8 @@
   border: 1px solid var(--accent-color);
   border-radius: 50%;
   color: var(--text-color-primary);
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .btn-left {
@@ -33,19 +34,25 @@
 }
 
 .btn-right {
-  right: 10rem;
+  right: 14rem;
   
 }
-
+.logo{
+  width: 4.3rem;
+  border-radius: 50%;
+}
 .button.btn-filter {
-  top: 5.5rem;
+  top: 7rem;
   right: 2rem;
   padding: 8px 1rem;
   border-radius: 2rem;
   border: 1px solid var(--accent-color);
+  position: fixed;
 }
 
-.btn-filter:hover,
+.btn-filter:hover{
+  background-color: var(--accent-color);
+}
 .btn-category:hover {
   box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
 }
