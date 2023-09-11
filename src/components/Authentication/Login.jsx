@@ -4,6 +4,7 @@ import { useAuth } from '../../context/auth-context'
 import { validateNumber } from '../../utils/number-regex';
 import { validatePassword } from '../../utils/password-regex';
 import { LoginHandler } from '../../services/AuthLogin';
+import { toast } from 'react-toastify';
 let isValidateNumber, isValidatePassword;
 const Login = () => {
   
@@ -37,6 +38,9 @@ const handleFormSubmit = async(event)=> {
     //   type: "SET_ACCESS_TOKEN",
     //   payload: accessToken,
     // })
+    if(accessToken){
+      toast.success("Logged In  successful!")
+    }
     localStorage.setItem("accessToken", accessToken);
 
     authDispatch({
@@ -52,20 +56,31 @@ const handleFormSubmit = async(event)=> {
    authDispatch({
     type: "AUTH_MODAL_OPEN",
    });
+
 }
 
 const handleTestCredentials = async (event)=> {
     event.preventDefault();
-    const {accessToken, userName} =await LoginHandler("7827352953", "Abcd@1234");
+    const {accessToken, userName} =await LoginHandler(7827352953, "Abcd@1234");
     // authDispatch({
     //   type: "SET_ACCESS_TOKEN",
     //   payload: accessToken,
     // })
+    if(accessToken){
+      toast.success("Logged In  successful!")
+    }
     localStorage.setItem("accessToken", accessToken);
     authDispatch({
       type: "SET_USERNAME",
       payload: userName,
     })
+    authDispatch({
+      type: "CLEAR_USER_DATA",
+     })
+     authDispatch({
+      type: "AUTH_MODAL_OPEN",
+     });
+    
 }
   return (
     <div className="auth-container">
@@ -75,13 +90,13 @@ const handleTestCredentials = async (event)=> {
           Mobile Number <span className="asterisk">*</span>{" "}
         </label>
         <input
-          defaultValue={mobile}
+          // defaultValue={mobile}
           type="number"
           className="auth-input"
           maxLength="10"
           placeholder="Enter Mobile Number"
           required
-          onChange={handleMobileChange}
+          onChange={()=>handleMobileChange}
         />
       </div>
       <div className="d-flex direction-column lb-in-container">
@@ -89,12 +104,12 @@ const handleTestCredentials = async (event)=> {
           Password <span className="asterisk">*</span>{" "}
         </label>
         <input
-        defaultValue={password}
+        // defaultValue={password}
           className="auth-input"
           placeholder="Enter Password"
           type="password"
           required
-          onChange={handlePasswordChange}
+          onChange={()=>handlePasswordChange}
         />
       </div>
       <div>

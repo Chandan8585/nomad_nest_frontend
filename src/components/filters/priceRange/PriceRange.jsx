@@ -40,7 +40,7 @@ return (
 <span className="filter-label">Price Range</span>
           <Box sx={{ width: "90%" }}>
     <Slider 
-    sx={{ color: "darkOrange" }}
+    sx={{ color: "rgb(103, 67, 56)" }}
       getAriaLabel={() => 'Minimum Difference'}
       value={priceRangeValue}
       valueLabelDisplay="on"

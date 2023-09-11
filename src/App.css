@@ -6,7 +6,9 @@
 
 :root {
   --background-color: #fafafa;
-  --primary-color: #ff6525;
+  /* --primary-color: #ff6525; */
+  --primary-color: #674338;
+
   --text-color-primary: #363030;
   --accent-color: #d2d2d2;
   --container-border-color: #707070;
@@ -21,4 +23,8 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   background-color: var(--background-color);
+}
+.custom-toast {
+  background-color: orange;
+  color: white; /* Text color */
 }

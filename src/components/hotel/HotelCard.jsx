@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useWishlist } from '../../context/wishlist-context';
 import { findDuplicate } from '../../utils/find-hotel-in-whishlist';
 import { useAuth } from '../../context/auth-context';
+import { toast } from 'react-toastify';
 const HotelCard = ({hotel}) => {
     const {_id, image, name, address, state, rating, price} = hotel;
            const navigate = useNavigate();
@@ -23,20 +24,21 @@ const HotelCard = ({hotel}) => {
           type: "ADD_TO_WISHLIST",
           payload: hotel
          })
+         toast.success("Hotel added to wishlist" );
       } else{
         wishlistDispatch({
           type: "REMOVE_FROM_WISHLIST",
           payload: _id
         })
+        toast.success("Hotel Removed from wishlist" );
       }
-     navigate("/hotels/wishlist")  
-         console.log(wishlist)
+   
     }else{
       authDispatch({
         type: "AUTH_MODAL_OPEN",
        });
     }
-
+    
    }
   return (
     <div className="relative hotelcard-container shadow cursor-pointer" key={_id} >
@@ -65,10 +67,11 @@ const HotelCard = ({hotel}) => {
     <button
       className="button btn-wishlist absolute d-flex align-center"
       onClick={handleWishlistClick}
+      
     >
       <span
         className={
-            `material-icons favorite cursor ${isHotelInWishlist ? "fav-selected": ""}`
+            `material-icons-outlined favorite cursor ${isHotelInWishlist ? "fav-selected": ""}`
      
     }
       >
@@ -80,3 +83,5 @@ const HotelCard = ({hotel}) => {
 }
 
 export default HotelCard
+
+

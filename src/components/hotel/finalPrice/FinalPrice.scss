@@ -11,7 +11,7 @@
     border: 1px solid var(--container-border-color);
     padding: 4px 0;
     text-align: left;
-  }
+  } 
   
   .gutter-sm {
     padding: 8px 1rem;
@@ -20,6 +20,9 @@
   .btn-reserve {
     width: 100%;
     padding: 1rem;
+  }
+  .btn-reserve:active {
+    transform: scale(0.95); /* Shrink the button slightly when clicked */
   }
   
   .price-distribution {

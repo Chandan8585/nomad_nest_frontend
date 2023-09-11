@@ -50,6 +50,10 @@ export const authReducers = (state, {type, payload})=> {
               ...state,
               userName: payload
             }
+            case "User_Modal_Open": return{
+              ...state,
+              isUserModalOpen : !state.isUserModalOpen 
+            }
             default: return state
           }
 }

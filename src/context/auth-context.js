@@ -3,6 +3,7 @@
 
     const initialState = {
         isAuthModalOpen: false,
+        isUserModalOpen: false,
         selectedTab : "login",
         name: "",
         mobile: "",
@@ -16,9 +17,9 @@
     const AuthContext = createContext(initialState);
 
     const AuthProvider = ({children})=> {
-        const [{isAuthModalOpen, accessToken ,userName,selectedTab ,confirmPassword, name, email, password, mobile}, authDispatch] = useReducer( authReducers, initialState);
+        const [{isAuthModalOpen, accessToken ,userName,selectedTab ,confirmPassword, name, email, password, mobile, isUserModalOpen}, authDispatch] = useReducer( authReducers, initialState);
         return (
-            <AuthContext.Provider value={{isAuthModalOpen, accessToken ,userName, confirmPassword, selectedTab, name, email, password, mobile, authDispatch}}>
+            <AuthContext.Provider value={{isAuthModalOpen, accessToken ,userName, confirmPassword, selectedTab, name, email, password, mobile, isUserModalOpen, authDispatch}}>
                 {children}
             </AuthContext.Provider>
         )
