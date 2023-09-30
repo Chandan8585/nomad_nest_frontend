@@ -1,5 +1,5 @@
 About
-V Travel App suggests you the best stays and enjoy your trip with range of best and budget prices, add your favourite hotel to wishlist can search your hotel category wise also provides gateway for instant payment to book your hotel.
+ Nomad_Nest App suggests you the best stays and enjoy your trip with range of best and budget prices, add your favourite hotel to wishlist can search your hotel category wise also provides gateway for instant payment to book your hotel.
 
 List of features
 Features of this version:
