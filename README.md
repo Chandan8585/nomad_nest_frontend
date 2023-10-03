@@ -25,6 +25,5 @@ Categories data from MongoDB
 Hotels arranged categorywise
 Tech Stack
 ReactJs
-HTML/CSS
 Express-Node.Js
 MongoDB
