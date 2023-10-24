@@ -8,11 +8,6 @@ discover Your Home Away From Home: The Ultimate Travel App for Seamless Rental A
 
 
 
-# Quizonik
-
-A travel app that helps you 
-discover Your Home Away From Home: The Ultimate Travel App for Seamless Rental Accommodation in your budget.Nomad_Nest App suggests you the best stays and enjoy your trip with range of best hotel and that too in budget prices, add your favourite hotel to wishlist can search your hotel category wise also provides gateway for instant payment to book your hotel.
-
 
 ## Features
 
