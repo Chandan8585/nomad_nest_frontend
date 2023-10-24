@@ -1,70 +1,87 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    ![Logo Screenshot](./public/logo192.png)
 
-## Available Scripts
+# Nomad_Nest App
 
-In the project directory, you can run:
+A travel app that helps you 
+discover Your Home Away From Home: The Ultimate Travel App for Seamless Rental Accommodation in your budget.Nomad_Nest App suggests you the best stays and enjoy your trip with range of best hotel and that too in budget prices, add your favourite hotel to wishlist can search your hotel category wise also provides gateway for instant payment to book your hotel.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Quizonik
 
-### `npm test`
+A travel app that helps you 
+discover Your Home Away From Home: The Ultimate Travel App for Seamless Rental Accommodation in your budget.Nomad_Nest App suggests you the best stays and enjoy your trip with range of best hotel and that too in budget prices, add your favourite hotel to wishlist can search your hotel category wise also provides gateway for instant payment to book your hotel.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- On the homepage, you will find the list of all the hotels that were listed on the webapp by hosts from all around the country. you can choose froom various categories listed.
+Open Markdown Preview:
+- On the homepage, you'll find a diverse selection of quiz categories. You can also use the filter section and search option to easily locate the quiz that piques your interest.
+- But Before you Choose Hotel for Booking you have to register as an user in sign up page and then you have to Login using mobile number and password.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Individual Hotel Pages, here you'll find the view of the hotel rooms and location type and amenities that will
+be offered and breif description about the hotel.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- In Hotel Reservation Page which is linked with Razorpay payment gateway helps in booking your hotel.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Client:** React, React-Context API, Html, CSSOpen Markdown Preview:
+In one of the editor panes, click on the square icon in the top right corner of the editor pane. This icon represents the "Open Preview" button. Clicking on it will open a preview of your README.md file in the adjacent pane.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Server:** Node, Express , MongoDB
+Open Markdown Preview:
+In one of the editor panes, click on the square icon in the top right corner of the editor pane. This icon represents the "Open Preview" button. Clicking on it will open a preview of your README.md file in the adjacent pane.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## AuthorOpen Markdown Preview:
+In one of the editor panes, click on the square icon in the top right corner of the editor pane. This icon represents the "Open Preview" button. Clicking on it will open a preview of your README.md file in the adjacent pane.
 
-## Learn More
+- Chandan Pratap
+- [github](https://github.com/Chandan8585)
+- [LinkedIn](https://www.linkedin.com/in/chandan-pratap-464386154/)
+- [Twitter](https://twitter.com/chandanpra25704)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Live Link
+# Frontend Link
 
-### Analyzing the Bundle Size
+https://nomad-nest-frontend-git-datecomponent-chandan8585.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Backend Link
 
-### Making a Progressive Web App
+https://nomad-nest.vercel.app/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Running the App Locally
+To get started with this project on your local machine, follow these simple steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Clone the project using the following command in your terminal. Ensure that you have Git installed and added to your system's path.
 
-### Deployment
+```bash
+  git clone git@github.com:Chandan8585/nomad_nest_frontend.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Navigate to the project directory:
+```bash
+  cd nomad_nest_frontend
+```
+- Install the required dependencies:
+```bash
+  npm install
+```
+- Start the server:
+```bash
+  npm run dev
+```
 
-### `npm run build` fails to minify
+# Demo
+## Screenshot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
