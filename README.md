@@ -1,5 +1,5 @@
 
-# Quizonik
+# Nomad Nest
 
 A travel app that helps you discover Your Home Away From Home: The Ultimate Travel App for Seamless Rental Accommodation in your budget.Nomad_Nest App suggests you the best stays and enjoy your trip with range of best and budget prices, add your favourite hotel to wishlist can search your hotel category wise also provides gateway for instant payment to book your hotel.
 
@@ -11,16 +11,18 @@ A travel app that helps you discover Your Home Away From Home: The Ultimate Trav
 ## Features
 
 - On the homepage, you'll find a diverse selection of quiz categories. You can also use the filter section and search option to easily locate the quiz that piques your interest.
-- Each quiz consists of 10 thought-provoking questions. You have a single attempt to answer each question correctly. If your answer is right, the selected option will turn green; otherwise, it will be marked in red.
+- But Before you Choose Hotel for Booking you have to register as an user in sign up page and then you have to Login using mobile number and password.
 
-- Once you've completed a quiz, the results page will reveal your score. You can review all the questions you attempted, including both correct and incorrect answers.
-- Access to gameplay requires user authentication. You can log in using any dummy ID and password—no need to worry about creating a real account.
-- If you're new to the platform, you can easily create a new account through the signup page. It's a straightforward process to get you started on your quiz journey.
+- Individual Hotel Pages, here you'll find the view of the hotel rooms and location type and amenities that will
+be offered and breif description about the hotel.
+
+- In Hotel Reservation Page which is linked with Razorpay payment gateway helps in booking your hotel.
+
 
 
 ## Tech Stack
 
-**Client:** React, React-Context API, Html, CSS
+**Client:** React, React-Context-api, React-Formik, Html, CSS
 
 **Server:** Node, Express , MongoDB
 
