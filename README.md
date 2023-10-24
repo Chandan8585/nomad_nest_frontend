@@ -1,6 +1,4 @@
 
-    ![Logo Screenshot](./public/logo192.png)
-
 # Nomad_Nest App
 
 A travel app that helps you 
