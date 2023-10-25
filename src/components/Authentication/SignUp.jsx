@@ -118,7 +118,7 @@ if(isValidateName){
           className="auth-input"
           placeholder="Enter Name"
           required
-          onChange={(event)=>handleNameChange(event)}
+          onChange= {handleNameChange}
         />
         
       </div>
