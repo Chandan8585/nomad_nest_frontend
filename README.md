@@ -40,7 +40,7 @@ A travel app that helps you discover Your Home Away From Home: The Ultimate Trav
 - Individual Hotel Pages, here you'll find the view of the hotel rooms and location type and amenities that will
 be offered and breif description about the hotel.
 
- <img src="./src/assets/SingleHotel.png" alt="App Screenshot" background-color="#fff"/>
+ <img src="./src/assets/Singlehotel.png" alt="App Screenshot" background-color="#fff"/>
 
 - In Wishlist Page you can store all the hotels for your upcoming holidays.
  <img src="./src/assets/Wishlist.png" alt="App Screenshot" background-color="#fff"/>
