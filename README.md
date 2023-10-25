@@ -1,5 +1,4 @@
 
-    ![App Screenshot](./src/assets/nomad_nest_logo.png)
 
 # Nomad_Nest App
 
@@ -13,8 +12,6 @@ discover Your Home Away From Home: The Ultimate Travel App for Seamless Rental A
 
 - On the homepage, you will find the list of all the hotels that were listed on the webapp by hosts from all around the country. you can choose froom various categories listed.
 Open Markdown Preview:
-
-- On the homepage, you'll find a diverse selection of quiz categories. You can also use the filter section and search option to easily locate the quiz that piques your interest.
 - But Before you Choose Hotel for Booking you have to register as an user in sign up page and then you have to Login using mobile number and password.
 
 - Individual Hotel Pages, here you'll find the view of the hotel rooms and location type and amenities that will
