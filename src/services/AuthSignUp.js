@@ -11,3 +11,4 @@ export const signUpHandler = async(name,  number, email, password)=> {
     console.log(error);
  }
 }
+// https://nomad-nest-backend.onrender.com/api/auth/register
