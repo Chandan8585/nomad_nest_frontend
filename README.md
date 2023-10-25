@@ -1,6 +1,3 @@
-
-    ![App Screenshot](./src/assets/nomad_nest_logo.png)
-
 # Nomad_Nest App
 
 A travel app that helps you 
