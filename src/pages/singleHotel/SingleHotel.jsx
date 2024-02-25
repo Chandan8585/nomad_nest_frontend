@@ -11,12 +11,11 @@ const SingleHotel = () => {
     
     const [singleHotel, setSingleHotel] = useState({});
     
-    
 
     useEffect(()=> {
          (async()=> {
             try {
-            const {data} =await axios.get(`https://nomad-nest-backend.onrender.com/api/hotels/${id}`);
+            const {data} =await axios.get(`https://nomad-nest-gp25.vercel.app/api/hotels/${id}`);
             
             setSingleHotel(data);
            

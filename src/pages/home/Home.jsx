@@ -17,6 +17,10 @@ import { getFilteredHotelByRating } from '../../utils/filter-rating';
 import { getFilteredByCancellableHotels } from '../../utils/filter-cancellable';
 import { useAuth } from '../../context/auth-context';
 import AuthModal from '../../components/AuthModal/AuthModal';
+import Shimmer from '../../components/shimmer/Shimmer';
+import HotelCardShimmer from '../../components/shimmer/HotelCardShimmer';
+import Footer from '../../components/footer/Footer';
+
 
 const Home = () => {
     const [hotelData , setHotelData] = useState([]);
@@ -32,7 +36,7 @@ const {priceRangeValue, isFilterModalOpen, noOfBathrooms, noOfBeds, noOfBedrooms
     useEffect(()=> {
    (async()=> {
  try {
-    const {data} = await axios.get(`https://nomad-nest-backend.onrender.com/api/hotels?category=${encodeURIComponent(hotelCategory)}`);
+    const {data} = await axios.get(`https://nomad-nest-gp25.vercel.app/api/hotels?category=${encodeURIComponent(hotelCategory)}`);
     
     setLoading(true);
     setTestData(data);
@@ -82,7 +86,7 @@ const {priceRangeValue, isFilterModalOpen, noOfBathrooms, noOfBeds, noOfBedrooms
   dataLength={hotelData.length} //This is important field to render the next data
   next={fetchMoreData}
   hasMore={hasMore}
-  loader={ hotelData.length > 0 && <h3 className='loading alert-text'>Loading...</h3>}
+  loader={ hotelData.length > 0 && <HotelCardShimmer/>}
   endMessage={<p>You have seen it all</p>}
 >
 <main className='main d-flex align-center wrap gap-larger'>
@@ -96,7 +100,8 @@ const {priceRangeValue, isFilterModalOpen, noOfBathrooms, noOfBeds, noOfBedrooms
         </main> 
         </>
         ) : (
-        <h1>Loading...</h1>
+          <Shimmer/>
+       
       ) 
 } 
 </main>
@@ -109,6 +114,7 @@ const {priceRangeValue, isFilterModalOpen, noOfBathrooms, noOfBeds, noOfBedrooms
 {
           isAuthModalOpen && <AuthModal/>
 }
+<Footer/>
     </Fragment>
   )
 }
