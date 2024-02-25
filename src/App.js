@@ -13,9 +13,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { orange } from '@mui/material/colors';
 
+
 function App() {
   return (
     <div className="App">
+  
       <Routes>
         <Route path='/' element={<Home/>} />
         
@@ -28,7 +30,8 @@ function App() {
         <Route path='/hotels/order-summary/:id' element= {<OrderSummary/>} />
         <Route path='/user-profile' element={<UserProfile/>} />
       </Routes>
-      <ToastContainer autoClose={3000} color={orange}/>
+      <ToastContainer autoClose={1000} color={orange}/>
+      
     </div>
   );
 }
