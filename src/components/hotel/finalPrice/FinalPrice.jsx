@@ -9,17 +9,23 @@ const FinalPrice = ({singleHotel}) => {
  const {dateDispatch, guest, checkInDate, checkOutDate} = useDate();
  
   const navigate = useNavigate();
- const handleGuestChange = (event)=> {
-       dateDispatch({
-        type: "ADD_GUEST",
-        payload: event.target.value
-       })
-       toast.success(`${guest} Guests added`);
- }
- const handleReserveClick = ()=> {
-       navigate(`/confirm-booking/stay/${_id}`)
-       toast.success("Proceeding for payment");
 
+ const handleGuestChange = (event) => {
+  const value = parseInt(event.target.value, 10) || 0;
+  // Update guest value in the context
+  dateDispatch({
+    type: "ADD_GUEST",
+    payload: value,
+  });
+};
+ const handleReserveClick = ()=> {
+   if(!checkInDate || !checkOutDate || guest<=0){
+    toast.error("Fill Dates and Number of Guest")
+   }else{
+    navigate(`/confirm-booking/stay/${_id}`)
+    toast.success("Proceeding for payment");
+   }
+     
  }
   return (
     <div className="price-details-container d-flex direction-column gap shadow">
@@ -46,17 +52,34 @@ const FinalPrice = ({singleHotel}) => {
       </div>
       <div className="guests gutter-sm">
         <p>GUESTS</p>
-        <p>{guest <= 0 ? (<input placeholder='Add Guests' type='number' value={guest} onChange={(event)=> handleGuestChange(event)} />):(<input value={guest} />)}</p>
+        <p>
+          {/* {guest <= 0 ? (<input placeholder='Add Guests' type='number' value={guest} onChange={(event)=> handleGuestChange(event)} />):(<input value={guest} />)} */}
+          {guest <= 0 ? (
+        <input
+          placeholder="Add Guests"
+          type="number"
+          value={guest}
+          onChange={(event) => handleGuestChange(event)}
+          min={0}
+        />
+      ) : (
+        <input
+          type="number"
+          value={guest}
+          onChange={(event) => handleGuestChange(event)} // Allow updates even for guest > 0
+        />
+      )}
+          </p>
       </div>
     </div>
     <div>
-      <button 
-      onClick={handleReserveClick}
-        className="button btn-reserve btn-primary cursor"
-        disabled = {checkInDate && checkOutDate && guest.length > 0 ? false: true}
-        >
-        Reserve
-      </button>
+      <button
+  onClick={handleReserveClick}
+  className="button btn-reserve btn-primary cursor"
+  disabled={!checkInDate || !checkOutDate || guest <= 0}
+>
+  Reserve
+</button>
     </div>
     <div className="price-distribution d-flex direction-column">
       <div className="final-price d-flex align-center justify-space-between">
