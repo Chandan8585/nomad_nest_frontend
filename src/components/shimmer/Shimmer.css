@@ -1,0 +1,107 @@
+.navbar-loading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1% 1% 0% 4%;
+  }
+  
+  .navbar-loading-logo {
+
+    width: 200px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    /* Light gray */
+    border-radius: 4px;
+  }
+  
+  .navbar-loading-form {
+    width: 300px; /* Adjust the size as needed */
+    height: 40px; /* Adjust the size as needed */
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    border-radius: 4px;
+  }
+  
+  .navbar-loading-wishlist {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px; /* Adjust the size as needed */
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    border-radius: 50%;
+  }
+  
+  .navbar-loading-nav {
+    width: 100px; /* Adjust the size as needed */
+    height: 40px; /* Adjust the size as needed */
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    border-radius: 4px;
+  }
+  
+.hotel-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.295);
+    margin-bottom: 20px;
+    width: 100%;
+    margin: 5% 2.1%;
+  }
+  
+  .image-shimmer {
+    width: 100%;
+    height: 200px; /* Adjust the height as needed */
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    animation: shimmer 1s infinite linear;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .title-shimmer {
+    width: 80%;
+    height: 20px;
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    margin-bottom: 10px;
+    animation: shimmer 1s infinite linear;
+  }
+  
+  .location-shimmer {
+    width: 50%;
+    height: 15px;
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    margin-bottom: 5px;
+    animation: shimmer 1s infinite linear;
+  }
+  
+  .rating-shimmer {
+    width: 40px;
+    height: 15px;
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    margin-bottom: 5px;
+    animation: shimmer 1s infinite linear;
+  }
+  
+  .price-shimmer {
+    width: 60px;
+    height: 20px;
+    background: linear-gradient(to right, #9f9d9d 0%, #a29f9f 50%, #c3c0c065 100%);
+    animation: shimmer 1s infinite linear;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border: none;
+  }
+  

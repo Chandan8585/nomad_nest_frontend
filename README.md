@@ -1,70 +1,110 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Nomad_Nest 
+ <img src="./src/assets/Nomads-Nest-WEB-LOGO.png" alt="App Screenshot" width="200" background-color="#fff"/>
 
-In the project directory, you can run:
+A travel app that helps you discover Your Home Away From Home: The Ultimate Travel App for Seamless Rental Accommodation in your budget.Nomad_Nest App suggests you the best stays and enjoy your trip with range of best hotel and that too in budget prices, add your favourite hotel to wishlist can search your hotel category wise also provides gateway for instant payment to book your hotel.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Sleek Single-Page Application:** Enjoy a seamless user experience within a single page, ensuring efficiency and smooth navigation.
 
-### `npm run build`
+- **Robust Backend Powered by Express.js and Node.js:** The application's backend functionality is supported by Express.js and Node.js, providing a robust and responsive foundation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Authentication Capabilities:** Utilize secure authentication features such as SignUp, Login, and Test Credentials to safeguard user data and ensure a safe environment.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Integrated React Date Component:** Benefit from the convenience of a React Date Component for easy and intuitive date selections within the application.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **RazorPay Payment Gateway (Test Mode):** Seamlessly handle payments through the RazorPay gateway, ensuring secure transactions, even in the testing phase.
 
-### `npm run eject`
+- **Efficient Database Management with MongoDB:** Database operations are handled seamlessly using MongoDB, ensuring reliable data storage and retrieval.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **State Management with React Context and Reducer:** Employ React Context and Reducer to effectively manage the state of the application, enhancing user interaction and experience.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Dynamic Infinite Scrolling:** Implement Infinite Scroll functionality, allowing users to explore content continuously without interruptions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Interactive Carousel for Categories:** Engage users with visually appealing carousels showcasing various categories, enhancing the presentation of content.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **User-Friendly Dropdown Lists and Modals:** Improve user interaction with intuitive Dropdown Lists and Modals, ensuring a seamless and interactive interface.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- On the homepage, you will find the list of all the hotels that were listed on the webapp by hosts from all around the country. you can choose froom various categories listed.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ <img src="./src/assets/Homepage.png" alt="App Screenshot" background-color="#fff"/>
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# All The Pages
+- Individual Hotel Pages, here you'll find the view of the hotel rooms and location type and amenities that will
+be offered and breif description about the hotel.
 
-### Analyzing the Bundle Size
+ <img src="./src/assets/Singlehotel.png" alt="App Screenshot" background-color="#fff"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- In Wishlist Page you can store all the hotels for your upcoming holidays.
+ <img src="./src/assets/Wishlist.png" alt="App Screenshot" background-color="#fff"/>
 
-### Making a Progressive Web App
+- In Hotel Reservation Page which is linked with Razorpay payment gateway helps in booking your hotel.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+ <img src="./src/assets/Payment.png" alt="App Screenshot" background-color="#fff"/>
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- In Order Summary Page you will get your Booking Details.
+ <img src="./src/assets/OrderSummary.png" alt="App Screenshot" background-color="#fff"/>
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Tech Stack
 
-### `npm run build` fails to minify
+**Client:** React, React-Context API, Html, CSSOpen Markdown Preview:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Server:** Node, Express , MongoDB
+
+## Author:
+
+- Chandan Pratap
+- [github](https://github.com/Chandan8585)
+- [LinkedIn](https://www.linkedin.com/in/chandan-pratap-464386154/)
+- [Twitter](https://twitter.com/chandanpra25704)
+
+
+
+
+# Live Link
+# Frontend Link
+
+https://nomad-nest-frontend-git-datecomponent-chandan8585.vercel.app/
+
+# Backend Link
+
+https://nomad-nest.vercel.app/
+
+
+## Running the App Locally
+To get started with this project on your local machine, follow these simple steps:
+
+- Clone the project using the following command in your terminal. Ensure that you have Git installed and added to your system's path.
+
+```bash
+  git clone git@github.com:Chandan8585/nomad_nest_frontend.git
+```
+
+- Navigate to the project directory:
+```bash
+  cd nomad_nest_frontend
+```
+- Install the required dependencies:
+```bash
+  npm install
+```
+- Start the server:
+```bash
+  npm run dev
+```
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+/* userProfile.scss */
+
+.user-profile {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--primary-color); /* Define your primary text color */
+    }
+  
+    .user-details {
+      font-size: 18px;
+      text-align: left;
+  
+      p {
+        margin: 10px 0;
+  
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  

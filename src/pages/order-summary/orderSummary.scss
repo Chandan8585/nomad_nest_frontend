@@ -1,0 +1,64 @@
+/* OrderSummary.css */
+
+.order-summary-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+
+  }
+  
+  .order-summary {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .order-details {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  .image{
+    object-fit: contain;
+  }
+  
+  /* Add more CSS to style your order summary page as needed */
+/* Add these styles to your CSS file */
+.download-pdf-btn {
+    position: absolute;
+    right: 25rem;
+    height: 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+//   .download-pdf-btn:hover {
+//     background-color: var(white); /* Change to your desired hover color */
+//   }
+  
+  .download-pdf-btn:active {
+    transform: scale(0.95); /* Shrink the button slightly when clicked */
+  }
+  

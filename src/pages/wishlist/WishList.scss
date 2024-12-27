@@ -1,0 +1,35 @@
+.wishlist-page {
+    padding: 2rem 3rem 1.5rem 3rem;
+  }
+  
+  .heading-2 {
+    padding: 7rem 0 1rem;
+    font-size: 2.5rem;
+  
+  }
+  
+  .click-here {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 900;
+    
+  margin: 1rem;
+  }
+  
+  .click-here:hover {
+    cursor: pointer;
+  }
+  .empty_cart{
+    padding: 10%;
+    background-image: url('../../assets/wishlist_empty.jpg');
+    width: 100vw;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+.wishlist_img{
+  width: 50%;
+
+}
