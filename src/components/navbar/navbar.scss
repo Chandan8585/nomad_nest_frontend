@@ -94,8 +94,13 @@
   }
   
     .app-logo {
-      width: fit-content;
-      height: fit-content;
+      margin-top: 20px;
+      width: 120px;
+      height: 80px;
+      mix-blend-mode: multiply;
+      object-fit: cover;
+      background: transparent;
+      border-radius: 50%;
     }
     
   
